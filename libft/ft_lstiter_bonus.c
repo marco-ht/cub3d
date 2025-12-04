@@ -1,12 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:03 by mpierant         ###   ########.fr       */
+/*   Created: 2024/12/21 08:24:45 by mpierant          #+#    #+#             */
+/*   Updated: 2024/12/21 08:27:41 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdlib.h>
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
+}

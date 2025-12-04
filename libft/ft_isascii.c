@@ -1,12 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:03 by mpierant         ###   ########.fr       */
+/*   Created: 2024/12/11 16:29:48 by mpierant          #+#    #+#             */
+/*   Updated: 2024/12/11 16:37:12 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
+
+int	ft_isascii(int c)
+{
+	int	r;
+
+	r = 0;
+	if (c >= 0 && c <= 127)
+	{
+		r = 1;
+	}
+	return (r);
+}
+
+/*int	main(void)
+{
+	int	c;
+
+	c = '(';
+	printf("risultato: %i\n", ft_isascii(c));
+}*/

@@ -1,12 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:03 by mpierant         ###   ########.fr       */
+/*   Created: 2024/12/11 16:48:02 by mpierant          #+#    #+#             */
+/*   Updated: 2024/12/12 16:39:14 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
+#include <stddef.h>
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	r;
+
+	r = 0;
+	while (s[r] != '\0')
+	{
+		r++;
+	}
+	return (r);
+}

@@ -1,12 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:03 by mpierant         ###   ########.fr       */
+/*   Created: 2024/12/12 16:10:30 by mpierant          #+#    #+#             */
+/*   Updated: 2024/12/12 16:48:16 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*a;
+
+	a = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		a[i] = '\0';
+		i++;
+	}
+}

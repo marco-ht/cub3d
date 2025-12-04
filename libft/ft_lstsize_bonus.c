@@ -1,12 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:03 by mpierant         ###   ########.fr       */
+/*   Created: 2024/12/21 07:24:06 by mpierant          #+#    #+#             */
+/*   Updated: 2024/12/21 07:30:55 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	int	dim;
+
+	dim = 0;
+	while (lst)
+	{
+		dim++;
+		lst = lst->next;
+	}
+	return (dim);
+}
