@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 06:26:37 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 17:52:53 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,23 @@ TESTS: (randomorder.cub has to works)
 ./cub3D "maps/invalidparam.cub"
 ./cub3D "maps/randomorder.cub"
 ./cub3D "maps/coloursformat.cub"
+./cub3D "maps/coloursformat2.cub"
 ./cub3D "maps/coloursvalues.cub"
+
+
+valgrind ./cub3D
+valgrind ./cub3D "invalid num of" "parameters"
+valgrind ./cub3D "maps/wrongextention.cubf"
+valgrind ./cub3D "maps/nonexistent.cub"
+valgrind ./cub3D "maps/empty.cub"
+valgrind ./cub3D "maps/justnewlines.cub"
+valgrind ./cub3D "maps/incomplete.cub"
+valgrind ./cub3D "maps/repetition.cub"
+valgrind ./cub3D "maps/invalidparam.cub"
+valgrind ./cub3D "maps/randomorder.cub"
+valgrind ./cub3D "maps/coloursformat.cub"
+valgrind ./cub3D "maps/coloursformat2.cub"
+valgrind ./cub3D "maps/coloursvalues.cub"
 */
+
+//valgrind --leak-check=full --show-leak-kinds=all
