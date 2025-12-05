@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:38:49 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 05:53:33 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 06:29:05 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ int	ft_parse_fields(t_vars *v, int fd)
 	{
 		str = ft_skip_emptylines(fd);
 		if (!str && i == 0)
-			return (printf("Error: empty .cub file\n"), close(fd),
+			return (printf("Error\nEmpty .cub file\n"), close(fd),
 				ft_exitclean(v), 1);
 		if (!str)
-			return (printf("Error: unexpected end of .cub file\n"), close(fd),
+			return (printf("Error\nUnexpected end of .cub file\n"), close(fd),
 				ft_exitclean(v), 1);
 		ft_parse_value(v, str, fd);
 		i++;
 	}
 	if (!v->no || !v->so || !v->we || !v->ea || !v->fl || !v->ce)
-		return (printf("Error: allocation failed\n"), ft_free_gnl(fd),
+		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
 	/* printf("no: %s", v->no);
 	printf("so: %s", v->so);
@@ -66,10 +66,10 @@ int	ft_parse_value(t_vars *v, char *str, int fd)
 		v->ce = ft_strdup(&str[i]);
 	else if (ft_isno(i, j, str) || ft_isso(i, j, str) || ft_iswe(i, j, str)
 		|| ft_isea(i, j, str) || ft_isf(i, j, str) || ft_isc(i, j, str))
-		return (printf("Error: repeated parameters in .cub file\n"),
+		return (printf("Error\nRepeated parameters in .cub file\n"),
 			ft_free_gnl(fd), close(fd), free(str), ft_exitclean(v), 1);
 	else
-		return (printf("Error: unexpected character in .cub file\n"),
+		return (printf("Error\nUnexpected character in .cub file\n"),
 			ft_free_gnl(fd), close(fd), free(str), ft_exitclean(v), 1);
 	return (free(str), 0);
 }
@@ -106,7 +106,7 @@ int	ft_convert(t_vars *v, int fd)
 	ft_check_format(v, fd);
 	rgb = ft_split(v->fl, ',');
 	if (!rgb)
-		return (printf("Error: allocation failed\n"), ft_free_gnl(fd),
+		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
 	v->f[0] = ft_atoi(rgb[0]);
 	v->f[1] = ft_atoi(rgb[1]);
@@ -114,7 +114,7 @@ int	ft_convert(t_vars *v, int fd)
 	ft_free_matrix(rgb);
 	rgb = ft_split(v->ce, ',');
 	if (!rgb)
-		return (printf("Error: allocation failed\n"), ft_free_gnl(fd),
+		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
 	v->c[0] = ft_atoi(rgb[0]);
 	v->c[1] = ft_atoi(rgb[1]);

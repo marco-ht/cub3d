@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 05:00:13 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 06:26:37 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     t_vars	v;
     
     if (argc != 2)
-        return (printf("Wrong number of parameters!\n"), 1);
+        return (printf("Error\nWrong number of parameters!\n"), 1);
     ft_init(&v);
     v.scene = ft_strdup(argv[1]);
     ft_parse(&v);

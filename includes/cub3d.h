@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 05:45:46 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 06:34:34 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		ft_init(t_vars *v);
 int			ft_parse(t_vars *v);
 int			ft_parse_fields(t_vars *v, int fd);
 int			ft_parse_value(t_vars *v, char *str, int fd);
+int			ft_parse_map(t_vars *v, int fd);
 
 // Parsing utils
 void		ft_extension(t_vars *v);
