@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 08:19:41 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 08:34:12 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,20 @@ int	ft_parse_map(t_vars *v, int fd)
 	str = ft_skip_emptylines(fd);
 	while (str)
 	{
+        ft_spacetozero(str);
         ft_reallocmap(v, str, size, fd);
         size++;
-		free(str);
+		//free(str); no, I assign it to map
 		str = get_next_line(fd);
 	}
+    //ft_cpymap(); if needed because we don't need flodfill
     //ft_checkmap();
 	return (0);
+} */
+
+/* ft_checkmap()
+{
+    only admitted chars
+    there is player one and only one time
+    closed with walls
 } */
