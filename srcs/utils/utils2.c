@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 17:09:32 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 05:49:11 by mpierant         ###   ########.fr       */
+/*   Created: 2025/12/05 05:46:19 by mpierant          #+#    #+#             */
+/*   Updated: 2025/12/05 05:47:13 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_parse(t_vars *v)
-{
-	int	fd;
+// add this file to Makefile
 
-	ft_extension(v);
-	fd = open(v->scene, O_RDONLY);
-	if (fd == -1)
-		return (printf("Error opening .cub file\n"), ft_exitclean(v), 1);
-	ft_parse_fields(v, fd);
-	// here ft_parse_map after parsing the other fields
-	close(fd);
-	return (0);
-}
+/* void    ft_free_map(v->map)
+{
+    int i;
+    //map è null terminata o uso il numero di righe?
+} */
+ 

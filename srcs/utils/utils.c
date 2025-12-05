@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 03:17:09 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 05:46:47 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,25 @@ void    ft_init(t_vars *v)
     v->map = NULL;
     v->map_cpy = NULL;
 }
-/* void    ft_free_map(v->map)
-{
-    int i;
-    //map è null terminata o uso il numero di righe?
-} */
  
+void    ft_free_matrix(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+		free(matrix[i++]);
+    free(matrix);
+}
+
+void    ft_free_gnl(int fd)
+{
+    char	*str;
+    
+	str = get_next_line(fd);
+	while (str)
+	{
+		free(str);
+		str = get_next_line(fd);
+	}
+}

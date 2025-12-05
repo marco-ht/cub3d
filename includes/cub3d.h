@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 00:57:34 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 05:45:46 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,30 @@ typedef struct s_vars
 	char	**map_cpy;
 }			t_vars;
 
+// Initialization
 void		ft_init(t_vars *v);
 
 // Parsing
 int			ft_parse(t_vars *v);
-void		ft_extension(t_vars *v);
 int			ft_parse_fields(t_vars *v, int fd);
 int			ft_parse_value(t_vars *v, char *str, int fd);
 
 // Parsing utils
+void		ft_extension(t_vars *v);
 char		*ft_skip_emptylines(int fd);
 void		ft_skip_spaces(int *i, int *j, char *str);
 char		*get_next_line(int fd);
+void		ft_free_gnl(int fd);
 int			ft_isno(int i, int j, char *str);
 int			ft_isso(int i, int j, char *str);
 int			ft_iswe(int i, int j, char *str);
 int			ft_isea(int i, int j, char *str);
 int			ft_isf(int i, int j, char *str);
 int			ft_isc(int i, int j, char *str);
+int			ft_convert(t_vars *v, int fd);
+void		ft_free_matrix(char **matrix);
+void		ft_check_format(t_vars *v, int fd);
+int			ft_check_values(t_vars *v, int fd);
 
 // Cleanup and exit
 void		ft_cleanup(t_vars *v);

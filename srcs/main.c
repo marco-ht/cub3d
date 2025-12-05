@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 03:20:37 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 05:00:13 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
 
 /*
-TESTS:
+TESTS: (randomorder.cub has to works)
 ./cub3D
 ./cub3D "invalid num of" "parameters"
 ./cub3D "maps/wrongextention.cubf"
@@ -39,4 +39,6 @@ TESTS:
 ./cub3D "maps/repetition.cub"
 ./cub3D "maps/invalidparam.cub"
 ./cub3D "maps/randomorder.cub"
+./cub3D "maps/coloursformat.cub"
+./cub3D "maps/coloursvalues.cub"
 */
