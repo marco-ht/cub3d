@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 06:34:34 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 22:33:51 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_vars
 	char	*ce;
 	int		f[3];
 	int		c[3];
+	int		map_size;
 	char	**map;
 	char	**map_cpy;
 }			t_vars;
@@ -59,9 +60,11 @@ int			ft_convert(t_vars *v, int fd);
 void		ft_free_matrix(char **matrix);
 void		ft_check_format(t_vars *v, int fd);
 int			ft_check_values(t_vars *v, int fd);
+void		ft_checkmap(t_vars *v);
 
 // Cleanup and exit
 void		ft_cleanup(t_vars *v);
 void		ft_exitclean(t_vars *v);
+void		ft_free_map(char **map, int size);
 
 #endif
