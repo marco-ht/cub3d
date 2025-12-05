@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/04 22:09:05 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/05 03:20:37 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,18 @@ int main(int argc, char **argv)
     ft_cleanup(&v);
     printf("DEBUG: succes.\n");
 }
+
+
+/*
+TESTS:
+./cub3D
+./cub3D "invalid num of" "parameters"
+./cub3D "maps/wrongextention.cubf"
+./cub3D "maps/nonexistent.cub"
+./cub3D "maps/empty.cub"
+./cub3D "maps/justnewlines.cub"
+./cub3D "maps/incomplete.cub"
+./cub3D "maps/repetition.cub"
+./cub3D "maps/invalidparam.cub"
+./cub3D "maps/randomorder.cub"
+*/
