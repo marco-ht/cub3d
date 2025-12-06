@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 22:32:11 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 15:37:48 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 static int ft_cpymap(t_vars *v)
 {
 	int		i;
-	char	**map_cpy;
+	//char	**map_cpy;
     char    *tmp;
 
-	map_cpy = malloc(sizeof(char *) * v->map_size);
-	if (!map_cpy)
+	printf("v->map_size=%d\n", v->map_size);
+	printf("v->map[v->map_size - 1]=%s\n", v->map[v->map_size - 1]);
+	v->map_cpy = malloc(sizeof(char *) * v->map_size);
+	if (!v->map_cpy)
 		return (printf("Error\nAllocation failed\n"), ft_exitclean(v), 1);
 	i = 0;
 	while (i < v->map_size)
     {
         tmp = ft_strdup(v->map[i]);
+		printf("tmp =%s\n", tmp);
         if (!tmp)
 		    return (printf("Error\nAllocation failed\n"), ft_exitclean(v), 1);
         v->map_cpy[i] = tmp;

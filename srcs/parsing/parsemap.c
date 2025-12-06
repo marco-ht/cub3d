@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 22:33:08 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 15:39:53 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	ft_check_mapstr(char *str, int fd, t_vars *v)
 {
 	int	i;
 
+    i = 0;
 	while (str[i] && str[i] != '\n')
 	{
 		if (str[i] != '0' && str[i] != '1' && str[i] != 'N' && str[i] != 'S'
@@ -56,11 +57,12 @@ char **ft_reallocmap(char **oldmap, int old_size, int new_size)
 	newmap = malloc(sizeof(char *) * new_size);
 	if (!newmap)
 		return (NULL);
+    printf("REALLOC: oldsize:%d, newsize:%d\n", old_size, new_size);
 	i = 0;
 	while (i < old_size)
 	{
 		newmap[i] = oldmap[i];
-		free(oldmap[i]);
+		//free(oldmap[i]);
 		i++;
 	}
 	free(oldmap);
@@ -75,18 +77,26 @@ int	ft_parse_map(t_vars *v, int fd)
 
 	size = 0;
 	str = ft_skip_emptylines(fd);
+    printf("strwoo: %s", str);
 	if (!str)
 		return (printf("Error\nMap missing in .cub file\n"), close(fd),
 			ft_exitclean(v), 1);
+    printf("hey woooooo\n");
 	while (str && ft_strncmp(str, "\n", ft_strlen(str)) != 0)
 	{
+        printf("\n\nstr= %s", str);
+        printf("hey dooo\n");
 		ft_check_mapstr(str, fd, v);
 		tmp = ft_reallocmap(v->map, size, size + 1);
 		if (!tmp)
 			return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 				close(fd), free(str), ft_exitclean(v), 1);
+        printf("hey fiiii\n");
 		v->map = tmp;
 		v->map[size] = str;
+        printf("str= %s\n", str);
+        printf("v->map[0]=%s\n", v->map[0]);
+        printf("v->map[%d]=%s", size, v->map[size]);
 		size++;
 		str = get_next_line(fd);
 	}
