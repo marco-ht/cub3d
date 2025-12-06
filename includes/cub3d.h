@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 22:33:51 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 19:18:19 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void		ft_checkmap(t_vars *v);
 void		ft_cleanup(t_vars *v);
 void		ft_exitclean(t_vars *v);
 void		ft_free_map(char **map, int size);
+void		ft_freemapcpy(t_vars *v);
 
 #endif

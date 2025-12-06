@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 22:28:27 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 19:20:58 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    ft_cleanup(t_vars *v)
     if (v->map)
         ft_free_map(v->map, v->map_size);
     if (v->map_cpy)
-        ft_free_map(v->map_cpy, v->map_size);
+        ft_freemapcpy(v);
     printf("DEBUG: cleanup done.\n");
 }
 void    ft_exitclean(t_vars *v)

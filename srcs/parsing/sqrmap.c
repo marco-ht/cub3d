@@ -1,41 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   sqrmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 05:46:19 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 19:17:20 by mpierant         ###   ########.fr       */
+/*   Created: 2025/12/06 19:58:14 by mpierant          #+#    #+#             */
+/*   Updated: 2025/12/06 19:59:05 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+// Here I'll put ft_cpysqrmap and its static helper functions
 
-void    ft_free_map(char **map, int size)
-{
-    int i;
-
-    i = 0;
-    while (i < size)
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
-}
-
-void    ft_freemapcpy(t_vars *v)
-{
-    int i;
-
-    i = 0;
-    while (i < v->map_size + 2)
-    {
-        if (v->map_cpy[i])
-            free(v->map_cpy[i]);
-        i++;
-    }
-    free(map);
-}
- 
+// Add this file to Makefile and ft_cpysqrmap to header
