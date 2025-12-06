@@ -6,13 +6,13 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 17:24:31 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 17:29:40 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// in parsefield if there are spaces after the value
+// in parsefield if there are spaces after the texture path
 // the error will emerge in the grafic part
 // while trying to open the textures.
 // there might be valid spaces inside the filename itself
