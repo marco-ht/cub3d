@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 15:50:37 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 17:24:31 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ int	ft_parse_map(t_vars *v, int fd)
 {
 	char	*str;
 	char	**tmp;
-	int		size;
 
-	size = 0;
+	v->map_size = 0;
 	str = ft_skip_emptylines(fd);
 	if (!str)
 		return (printf("Error\nMap missing in .cub file\n"), close(fd),
@@ -81,18 +80,17 @@ int	ft_parse_map(t_vars *v, int fd)
 	while (str && ft_strncmp(str, "\n", ft_strlen(str)) != 0)
 	{
 		ft_check_mapstr(str, fd, v);
-		tmp = ft_reallocmap(v->map, size, size + 1);
+		tmp = ft_reallocmap(v->map, v->map_size, v->map_size + 1);
 		if (!tmp)
 			return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 				close(fd), free(str), ft_exitclean(v), 1);
 		v->map = tmp;
-		v->map[size] = str;
-		size++;
+		v->map[v->map_size] = str;
+		v->map_size++;
 		str = get_next_line(fd);
 	}
 	free(str);
 	ft_checkfinished(v, fd);
-	v->map_size = size;
 	return (0);
 }
 
