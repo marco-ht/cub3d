@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 17:52:53 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 18:01:44 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ int main(int argc, char **argv)
 
 
 /*
-TESTS: (randomorder.cub has to works)
+*********** TESTS ***********
+(randomorder.cub has to works)
+ 
 ./cub3D
 ./cub3D "invalid num of" "parameters"
 ./cub3D "maps/wrongextention.cubf"
 ./cub3D "maps/nonexistent.cub"
+
+// parameters errors
 ./cub3D "maps/empty.cub"
 ./cub3D "maps/justnewlines.cub"
 ./cub3D "maps/incomplete.cub"
@@ -43,11 +47,21 @@ TESTS: (randomorder.cub has to works)
 ./cub3D "maps/coloursformat2.cub"
 ./cub3D "maps/coloursvalues.cub"
 
+// map errors
+./cub3D "maps/map_invalidchar.cub"
+./cub3D "maps/map_textafter.cub"
+./cub3D "maps/map_noplayer.cub"
+./cub3D "maps/map_multiplayer.cub"
+
+
+*********** MEMORY LEAKS ***********
 
 valgrind ./cub3D
 valgrind ./cub3D "invalid num of" "parameters"
 valgrind ./cub3D "maps/wrongextention.cubf"
 valgrind ./cub3D "maps/nonexistent.cub"
+
+// parameters errors
 valgrind ./cub3D "maps/empty.cub"
 valgrind ./cub3D "maps/justnewlines.cub"
 valgrind ./cub3D "maps/incomplete.cub"
@@ -57,6 +71,12 @@ valgrind ./cub3D "maps/randomorder.cub"
 valgrind ./cub3D "maps/coloursformat.cub"
 valgrind ./cub3D "maps/coloursformat2.cub"
 valgrind ./cub3D "maps/coloursvalues.cub"
+
+// map errors
+valgrind ./cub3D "maps/map_invalidchar.cub"
+valgrind ./cub3D "maps/map_textafter.cub"
+valgrind ./cub3D "maps/map_noplayer.cub"
+valgrind ./cub3D "maps/map_multiplayer.cub"
 */
 
 //valgrind --leak-check=full --show-leak-kinds=all
