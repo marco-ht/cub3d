@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 18:01:44 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 18:31:19 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int main(int argc, char **argv)
 ./cub3D "maps/map_textafter.cub"
 ./cub3D "maps/map_noplayer.cub"
 ./cub3D "maps/map_multiplayer.cub"
+./cub3D "maps/map_openwalls.cub"
+./cub3D "maps/maps/map_spaceinside.cub"
 
 
 *********** MEMORY LEAKS ***********
@@ -77,6 +79,8 @@ valgrind ./cub3D "maps/map_invalidchar.cub"
 valgrind ./cub3D "maps/map_textafter.cub"
 valgrind ./cub3D "maps/map_noplayer.cub"
 valgrind ./cub3D "maps/map_multiplayer.cub"
+valgrind ./cub3D "maps/map_openwalls.cub"
+valgrind ./cub3D "maps/map_spaceinside.cub"
 */
 
 //valgrind --leak-check=full --show-leak-kinds=all

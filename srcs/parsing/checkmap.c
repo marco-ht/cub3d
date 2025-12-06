@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 18:05:15 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/06 18:45:42 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,14 @@ void	ft_checkmap(t_vars *v)
 	4) in ft_check: closed with walls
 	5) in ft_check: (solo dopo verifica chiuso con wall) con flodfill vado a vedere se il giocatore puo raggiungere gli spazi,
 		in tal caso errore
+ */
+
+ /* 
+	To do the checks 4 and 5 we make the map a square by adding a string made of spaces
+	as first and last string
+	a space char at the beginning of each string
+	as many spaces at the end of each string to reach max_len + 2 (at least one space at beginning and end)
+	we can just modify mapcpy to mapsqrcpy
+	and the we apply floodfill recursively from player start position
+	and if we meet any space we clean exit with error (open walls or space reachable by player)
  */
