@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/07 23:42:27 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:45:55 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static void	ft_flodfill(t_point p, char **map, t_vars *v)
 	{
 		v->error_walls = 1;
 		return ;
-		/* return (printf("Error\nOpen walls or space reachable by player\n"),
-			ft_exitclean(v), 1); */
 	}
 	if (map[p.y][p.x] == '1' || map[p.y][p.x] == '*')
 		return ;
@@ -91,7 +89,7 @@ int	ft_checkmap(t_vars *v)
 	DONE	2) no chars after map, only empty lines admitted
 	DONE	3) in ft_check: there is player one and only one time
 	DONE	4) in ft_check: with flodfill closed with walls and check if player can reach spaces
- */
+*/
 
 /*
    To do the checks 4 we make a copy of the map but squared shaped
