@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/07 20:44:20 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:38:05 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,4 @@ valgrind ./cub3D "maps/map_openwalls.cub"
 valgrind ./cub3D "maps/map_spaceinside.cub"
 */
 
-//valgrind --leak-check=full --show-leak-kinds=all ./cub3D "maps/example.cub"
+//valgrind --leak-check=full --show-leak-kinds=all

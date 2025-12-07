@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 19:18:19 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:37:49 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void		ft_free_matrix(char **matrix);
 void		ft_check_format(t_vars *v, int fd);
 int			ft_check_values(t_vars *v, int fd);
 void		ft_checkmap(t_vars *v);
+int			ft_cpysqrmap(t_vars *v);
 
 // Cleanup and exit
 void		ft_cleanup(t_vars *v);
