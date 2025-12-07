@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/07 21:37:49 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:37:50 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_point
+{
+	int		x;
+	int		y;
+}			t_point;
 
 typedef struct s_vars
 {
@@ -33,6 +39,9 @@ typedef struct s_vars
 	int		map_size;
 	char	**map;
 	char	**map_cpy;
+	int		map_cpy_x_p;
+	int		map_cpy_y_p;
+	int		error_walls;
 }			t_vars;
 
 // Initialization
@@ -60,7 +69,7 @@ int			ft_convert(t_vars *v, int fd);
 void		ft_free_matrix(char **matrix);
 void		ft_check_format(t_vars *v, int fd);
 int			ft_check_values(t_vars *v, int fd);
-void		ft_checkmap(t_vars *v);
+int			ft_checkmap(t_vars *v);
 int			ft_cpysqrmap(t_vars *v);
 
 // Cleanup and exit
