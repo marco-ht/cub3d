@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 05:46:19 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 19:17:20 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:20:02 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void    ft_freemapcpy(t_vars *v)
             free(v->map_cpy[i]);
         i++;
     }
-    free(map);
+    free(v->map_cpy);
 }
  
