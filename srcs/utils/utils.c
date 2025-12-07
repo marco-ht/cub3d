@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/06 19:20:58 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:52:21 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void    ft_init(t_vars *v)
     v->ea = NULL;
     v->fl = NULL;
 	v->ce = NULL;
-    v->map_size = 0;
     v->map = NULL;
     v->map_cpy = NULL;
 }
