@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/08 04:27:43 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/08 05:31:34 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ void	ft_exitclean(t_vars *v)
 	printf("DEBUG: exit clean called.\n");
 	ft_cleanup(v);
 	exit(1);
+}
+
+int	ft_exitsucces(t_vars *v)
+{
+	printf("DEBUG: exit clean success called.\n");
+	ft_cleanup(v);
+	exit(0);
+	return (0);
 }
 
 void	ft_init(t_vars *v)

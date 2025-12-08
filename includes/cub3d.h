@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/08 04:24:03 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/08 05:31:17 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define CUB3D_H
 
 # include "../libft/libft.h"
+# include <X11/keysym.h>
 # include <fcntl.h>
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <mlx.h>
-#include <X11/keysym.h>
 
 typedef struct s_point
 {
@@ -85,5 +85,6 @@ void		ft_cleanup(t_vars *v);
 void		ft_exitclean(t_vars *v);
 void		ft_free_map(char **map, int size);
 void		ft_freemapcpy(t_vars *v);
+int			ft_exitsucces(t_vars *v);
 
 #endif
