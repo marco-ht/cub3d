@@ -4,7 +4,7 @@ NAMEB	= cub3D_bonus
 
 # Compiler e flags
 CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra
+CFLAGS  = -Wall -Werror -Wextra -Iminilibx-linux
 LDLIBS   = -lm
 
 # Directory dei sorgenti e degli oggetti
@@ -17,12 +17,15 @@ SRC_GNL = $(SRC_DIR)/get_next_line
 OBJ_DIR = objs
 
 # Lista dei file sorgente e relativi oggetti
-SRC     = $(SRC_DIR)/main.c $(SRC_PARSE)/parsing.c $(SRC_PARSE)/parsefields.c $(SRC_PARSE)/scene_check.c $(SRC_PARSE)/cases.c $(SRC_PARSE)/cases2.c $(SRC_PARSE)/parsemap.c $(SRC_PARSE)/checkmap.c $(SRC_PARSE)/sqrmap.c $(SRC_UTLS)/utils.c $(SRC_UTLS)/utils2.c $(SRC_GNL)/get_next_line_utils.c $(SRC_GNL)/get_next_line.c
-OBJ     = $(OBJ_DIR)/main.o $(OBJ_DIR)/parsing.o $(OBJ_DIR)/parsefields.o $(OBJ_DIR)/scene_check.o $(OBJ_DIR)/cases.o $(OBJ_DIR)/cases2.o $(OBJ_DIR)/parsemap.o $(OBJ_DIR)/checkmap.o $(OBJ_DIR)/sqrmap.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/utils2.o $(OBJ_DIR)/get_next_line_utils.o $(OBJ_DIR)/get_next_line.o
+SRC     = $(SRC_DIR)/main.c $(SRC_PARSE)/parsing.c $(SRC_PARSE)/parsefields.c $(SRC_PARSE)/scene_check.c $(SRC_PARSE)/cases.c $(SRC_PARSE)/cases2.c $(SRC_PARSE)/parsemap.c $(SRC_PARSE)/checkmap.c $(SRC_PARSE)/sqrmap.c $(SRC_REND)/rendering.c $(SRC_UTLS)/utils.c $(SRC_UTLS)/utils2.c $(SRC_GNL)/get_next_line_utils.c $(SRC_GNL)/get_next_line.c
+OBJ     = $(OBJ_DIR)/main.o $(OBJ_DIR)/parsing.o $(OBJ_DIR)/parsefields.o $(OBJ_DIR)/scene_check.o $(OBJ_DIR)/cases.o $(OBJ_DIR)/cases2.o $(OBJ_DIR)/parsemap.o $(OBJ_DIR)/checkmap.o $(OBJ_DIR)/sqrmap.o $(OBJ_DIR)/rendering.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/utils2.o $(OBJ_DIR)/get_next_line_utils.o $(OBJ_DIR)/get_next_line.o
 
 # Parametri per libft
 LIBFT_DIR = libft
 LIBFT    = $(LIBFT_DIR)/libft.a
+
+# MinilibX
+MLX_DIR = minilibx-linux
 
 # Comando di rimozione
 RM      = rm -rf
@@ -30,18 +33,29 @@ RM      = rm -rf
 # Target di default
 all: $(NAME)
 
-# Regola per creare l'eseguibile, dipendente da oggetti e dalla libft compilata
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LDLIBS)
+# Compila MinilibX se presente
+$(MLX_DIR)/libmlx_Linux.a:
+	@if [ -d "$(MLX_DIR)" ]; then \
+		$(MAKE) -C $(MLX_DIR); \
+	else \
+		echo "Error: mlx directory '$(MLX_DIR)' not found."; \
+	fi
 
-bonus: $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAMEB) $(LDLIBS)
+# Regola per creare l'eseguibile, dipendente da oggetti e dalla libft compilata
+$(NAME): $(OBJ) $(LIBFT) $(MLX_DIR)/libmlx_Linux.a
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz -lbsd -o $(NAME) $(LDLIBS)
+
+bonus: $(OBJ) $(LIBFT) $(MLX_DIR)/libmlx_Linux.a
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz -lbsd -o $(NAMEB) $(LDLIBS)
 
 # Regola per compilare i file .c in file .o all'interno della directory obj
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_PARSE)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_REND)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_UTLS)/%.c | $(OBJ_DIR)
@@ -62,12 +76,14 @@ $(LIBFT):
 clean:
 	$(RM) $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
+	@if [ -d "$(MLX_DIR)" ]; then $(MAKE) -C $(MLX_DIR) clean || true; fi
 
 # Pulizia completa: rimuove l'eseguibile, gli oggetti e la libft (file oggetto e libft.a)
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(NAMEB)
 	$(MAKE) -C $(LIBFT_DIR) fclean
+	@if [ -f "$(MLX_DIR)/libmlx_Linux.a" ]; then rm -f $(MLX_DIR)/libmlx_Linux.a; fi
 
 # Ricompilazione totale
 re: fclean all

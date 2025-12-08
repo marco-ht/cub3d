@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/07 23:37:50 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/08 04:24:03 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <mlx.h>
+#include <X11/keysym.h>
 
 typedef struct s_point
 {
@@ -42,6 +44,9 @@ typedef struct s_vars
 	int		map_cpy_x_p;
 	int		map_cpy_y_p;
 	int		error_walls;
+	void	*mlx;
+	void	*mlx_win;
+	void	*mlx_img;
 }			t_vars;
 
 // Initialization
@@ -71,6 +76,9 @@ void		ft_check_format(t_vars *v, int fd);
 int			ft_check_values(t_vars *v, int fd);
 int			ft_checkmap(t_vars *v);
 int			ft_cpysqrmap(t_vars *v);
+
+// Rendering
+void		ft_launch(t_vars *v);
 
 // Cleanup and exit
 void		ft_cleanup(t_vars *v);

@@ -1,0 +1,6 @@
+{
+    ignore_mlx_x11_uninitialized
+    Memcheck:Param
+    writev(vector[0])
+    fun:writev
+}
