@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/12 15:27:34 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:53:41 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ int main(int argc, char **argv)
 /*
 *********** TESTS ***********
 (randomorder.cub has to works)
+(spaced name.cub has to works)
  
 ./cub3D
 ./cub3D "invalid num of" "parameters"
 ./cub3D "maps/wrongextention.cubf"
 ./cub3D "maps/nonexistent.cub"
+./cub3D "maps/spaced name.cub"
 
 // parameters errors
 ./cub3D "maps/empty.cub"
@@ -66,6 +68,7 @@ valgrind ./cub3D
 valgrind ./cub3D "invalid num of" "parameters"
 valgrind ./cub3D "maps/wrongextention.cubf"
 valgrind ./cub3D "maps/nonexistent.cub"
+valgrind ./cub3D "maps/spaced name.cub"
 
 // parameters errors
 valgrind ./cub3D "maps/empty.cub"
