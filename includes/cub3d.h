@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/08 05:31:17 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:08:49 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void		ft_check_format(t_vars *v, int fd);
 int			ft_check_values(t_vars *v, int fd);
 int			ft_checkmap(t_vars *v);
 int			ft_cpysqrmap(t_vars *v);
+void		ft_check_textures(t_vars *v, int fd);
 
 // Rendering
 void		ft_launch(t_vars *v);

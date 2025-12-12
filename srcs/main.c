@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/08 03:47:40 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:27:34 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,20 @@ int main(int argc, char **argv)
 ./cub3D "maps/repetition.cub"
 ./cub3D "maps/invalidparam.cub"
 ./cub3D "maps/randomorder.cub"
+./cub3D "maps/texture_noxpm.cub"
+./cub3D "maps/texture_notexist.cub"
 ./cub3D "maps/coloursformat.cub"
 ./cub3D "maps/coloursformat2.cub"
 ./cub3D "maps/coloursvalues.cub"
 
 // map errors
+./cub3D "maps/map_nomap.cub"
 ./cub3D "maps/map_invalidchar.cub"
 ./cub3D "maps/map_textafter.cub"
 ./cub3D "maps/map_noplayer.cub"
 ./cub3D "maps/map_multiplayer.cub"
 ./cub3D "maps/map_openwalls.cub"
-./cub3D "maps/maps/map_spaceinside.cub"
+./cub3D "maps/map_spaceinside.cub"
 
 
 *********** MEMORY LEAKS ***********
@@ -71,11 +74,14 @@ valgrind ./cub3D "maps/incomplete.cub"
 valgrind ./cub3D "maps/repetition.cub"
 valgrind ./cub3D "maps/invalidparam.cub"
 valgrind ./cub3D "maps/randomorder.cub"
+valgrind ./cub3D "maps/texture_noxpm.cub"
+valgrind ./cub3D "maps/texture_notexist.cub"
 valgrind ./cub3D "maps/coloursformat.cub"
 valgrind ./cub3D "maps/coloursformat2.cub"
 valgrind ./cub3D "maps/coloursvalues.cub"
 
 // map errors
+valgrind ./cub3D "maps/map_nomap.cub"
 valgrind ./cub3D "maps/map_invalidchar.cub"
 valgrind ./cub3D "maps/map_textafter.cub"
 valgrind ./cub3D "maps/map_noplayer.cub"

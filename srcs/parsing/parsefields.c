@@ -6,7 +6,7 @@
 /*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:38:49 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/05 06:29:05 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:21:59 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,8 @@ int	ft_parse_fields(t_vars *v, int fd)
 	if (!v->no || !v->so || !v->we || !v->ea || !v->fl || !v->ce)
 		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
-	/* printf("no: %s", v->no);
-	printf("so: %s", v->so);
-	printf("we: %s", v->we);
-	printf("ea: %s", v->ea);
-	printf("fl: %s", v->fl);
-	printf("ce: %s", v->ce); */
-	// ft_convert to convert ce and fl to int, if format invalid -> error
+	ft_check_textures(v, fd);
 	ft_convert(v, fd);
-	/* printf("f[r]:%d, f[g]:%d, f[b]:%d\n", v->f[0], v->f[1], v->f[2]);
-	printf("c[r]:%d, c[g]:%d, c[b]:%d\n", v->c[0], v->c[1], v->c[2]); */
 	return (0);
 }
 
