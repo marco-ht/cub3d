@@ -36,6 +36,9 @@ all: $(NAME)
 # Compila MinilibX se presente
 $(MLX_DIR)/libmlx_Linux.a:
 	@if [ -d "$(MLX_DIR)" ]; then \
+		if [ -f "$(MLX_DIR)/configure" ]; then \
+			chmod +x "$(MLX_DIR)/configure" || true; \
+		fi; \
 		$(MAKE) -C $(MLX_DIR); \
 	else \
 		echo "Error: mlx directory '$(MLX_DIR)' not found."; \
