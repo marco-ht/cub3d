@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 13:39:26 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:37:48 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:06:50 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ static int	ft_check_texture(char *value, t_vars *v, int fd)
 			ft_free_gnl(fd), close(fd), ft_exitclean(v), 1);
 	fd_txt = open(value, O_RDONLY);
 	if (fd_txt == -1)
-		return (printf("Error\nNot possible to open '%s' texture file\n",
-				value), ft_free_gnl(fd), close(fd), ft_exitclean(v), 1);
+		return (printf("Error\nNot possible to open '%s' texture file\n%s\n",
+				value, strerror(errno)), ft_free_gnl(fd), close(fd),
+			ft_exitclean(v), 1);
 	close(fd_txt);
 	return (0);
 }

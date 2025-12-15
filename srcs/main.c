@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:58:26 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:25:05 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(int argc, char **argv)
     ft_init(&v);
     v.scene = ft_strdup(argv[1]);
     ft_parse(&v);
-    //Here ft_launch to run the game if parsing is succesful
     ft_launch(&v);
     ft_cleanup(&v);
     printf("DEBUG: succes.\n");
@@ -37,6 +36,7 @@ int main(int argc, char **argv)
 ./cub3D "invalid num of" "parameters"
 ./cub3D "maps/wrongextention.cubf"
 ./cub3D "maps/nonexistent.cub"
+./cub3D "maps/no_perm.cub"
 ./cub3D "maps/spaced name.cub"
 
 // parameters errors
@@ -48,6 +48,7 @@ int main(int argc, char **argv)
 ./cub3D "maps/randomorder.cub"
 ./cub3D "maps/texture_noxpm.cub"
 ./cub3D "maps/texture_notexist.cub"
+./cub3D "maps/texture_noperm.cub"
 ./cub3D "maps/coloursformat.cub"
 ./cub3D "maps/coloursformat2.cub"
 ./cub3D "maps/coloursvalues.cub"
@@ -68,6 +69,7 @@ valgrind ./cub3D
 valgrind ./cub3D "invalid num of" "parameters"
 valgrind ./cub3D "maps/wrongextention.cubf"
 valgrind ./cub3D "maps/nonexistent.cub"
+valgrind ./cub3D "maps/no_perm.cub"
 valgrind ./cub3D "maps/spaced name.cub"
 
 // parameters errors
@@ -79,6 +81,7 @@ valgrind ./cub3D "maps/invalidparam.cub"
 valgrind ./cub3D "maps/randomorder.cub"
 valgrind ./cub3D "maps/texture_noxpm.cub"
 valgrind ./cub3D "maps/texture_notexist.cub"
+valgrind ./cub3D "maps/texture_noperm.cub"
 valgrind ./cub3D "maps/coloursformat.cub"
 valgrind ./cub3D "maps/coloursformat2.cub"
 valgrind ./cub3D "maps/coloursvalues.cub"

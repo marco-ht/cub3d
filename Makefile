@@ -14,6 +14,8 @@ SRC_RAY = $(SRC_DIR)/raycasting
 SRC_REND = $(SRC_DIR)/rendering
 SRC_UTLS = $(SRC_DIR)/utils
 SRC_GNL = $(SRC_DIR)/get_next_line
+TXT_DIR = textures
+MAP_DIR = maps
 OBJ_DIR = objs
 
 # Lista dei file sorgente e relativi oggetti
@@ -38,6 +40,12 @@ $(MLX_DIR)/libmlx_Linux.a:
 	@if [ -d "$(MLX_DIR)" ]; then \
 		if [ -f "$(MLX_DIR)/configure" ]; then \
 			chmod +x "$(MLX_DIR)/configure" || true; \
+		fi; \
+		if [ -f "$(TXT_DIR)/no_perm.xpm" ]; then \
+			chmod -r "$(TXT_DIR)/no_perm.xpm" || true; \
+		fi; \
+		if [ -f "$(MAP_DIR)/no_perm.cub" ]; then \
+			chmod -r "$(MAP_DIR)/no_perm.cub" || true; \
 		fi; \
 		$(MAKE) -C $(MLX_DIR); \
 	else \
