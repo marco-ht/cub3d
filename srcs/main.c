@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 19:32:06 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 20:29:47 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	ft_parse(&v);
 	ft_launch(&v);
 	ft_cleanup(&v);
-	printf("DEBUG: succes.\n");
 }
 
 /*

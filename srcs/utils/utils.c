@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 19:52:21 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 20:30:20 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,16 @@ void	ft_cleanup(t_vars *v)
 	if (v->ce)
 		free(v->ce);
 	ft_cleanup2(v);
-	printf("DEBUG: cleanup done.\n");
 }
 
 void	ft_exitclean(t_vars *v)
 {
-	printf("DEBUG: exit clean called.\n");
 	ft_cleanup(v);
 	exit(1);
 }
 
 int	ft_exitsucces(t_vars *v)
 {
-	printf("DEBUG: exit clean success called.\n");
 	ft_cleanup(v);
 	exit(0);
 	return (0);
