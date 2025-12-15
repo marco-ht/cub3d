@@ -17,8 +17,8 @@ SRC_GNL = $(SRC_DIR)/get_next_line
 OBJ_DIR = objs
 
 # Lista dei file sorgente e relativi oggetti
-SRC     = $(SRC_DIR)/main.c $(SRC_PARSE)/parsing.c $(SRC_PARSE)/parsefields.c $(SRC_PARSE)/scene_check.c $(SRC_PARSE)/scene_check_2.c $(SRC_PARSE)/cases.c $(SRC_PARSE)/cases2.c $(SRC_PARSE)/parsemap.c $(SRC_PARSE)/checkmap.c $(SRC_PARSE)/sqrmap.c $(SRC_REND)/rendering.c $(SRC_REND)/rendering_player.c $(SRC_REND)/debug_mode.c $(SRC_UTLS)/utils.c $(SRC_UTLS)/utils2.c $(SRC_GNL)/get_next_line_utils.c $(SRC_GNL)/get_next_line.c
-OBJ     = $(OBJ_DIR)/main.o $(OBJ_DIR)/parsing.o $(OBJ_DIR)/parsefields.o $(OBJ_DIR)/scene_check.o $(OBJ_DIR)/scene_check_2.o $(OBJ_DIR)/cases.o $(OBJ_DIR)/cases2.o $(OBJ_DIR)/parsemap.o $(OBJ_DIR)/checkmap.o $(OBJ_DIR)/sqrmap.o $(OBJ_DIR)/rendering.o $(OBJ_DIR)/rendering_player.o $(OBJ_DIR)/debug_mode.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/utils2.o $(OBJ_DIR)/get_next_line_utils.o $(OBJ_DIR)/get_next_line.o
+SRC     = $(SRC_DIR)/main.c $(SRC_PARSE)/parsing.c $(SRC_PARSE)/parsefields.c $(SRC_PARSE)/scene_check.c $(SRC_PARSE)/scene_check_2.c $(SRC_PARSE)/cases.c $(SRC_PARSE)/cases2.c $(SRC_PARSE)/parsemap.c $(SRC_PARSE)/checkmap.c $(SRC_PARSE)/sqrmap.c $(SRC_REND)/rendering.c $(SRC_REND)/init_player.c $(SRC_REND)/rendering_loop.c $(SRC_REND)/rendering_texture.c $(SRC_REND)/rendering_pixel.c $(SRC_REND)/rendering_utils.c $(SRC_REND)/fps.c $(SRC_REND)/move_player.c $(SRC_REND)/debug_mode.c $(SRC_RAY)/raycasting.c $(SRC_UTLS)/utils.c $(SRC_UTLS)/utils2.c $(SRC_GNL)/get_next_line_utils.c $(SRC_GNL)/get_next_line.c
+OBJ     = $(OBJ_DIR)/main.o $(OBJ_DIR)/parsing.o $(OBJ_DIR)/parsefields.o $(OBJ_DIR)/scene_check.o $(OBJ_DIR)/scene_check_2.o $(OBJ_DIR)/cases.o $(OBJ_DIR)/cases2.o $(OBJ_DIR)/parsemap.o $(OBJ_DIR)/checkmap.o $(OBJ_DIR)/sqrmap.o $(OBJ_DIR)/rendering.o $(OBJ_DIR)/init_player.o $(OBJ_DIR)/rendering_loop.o $(OBJ_DIR)/rendering_texture.o $(OBJ_DIR)/rendering_pixel.o $(OBJ_DIR)/rendering_utils.o $(OBJ_DIR)/fps.o $(OBJ_DIR)/move_player.o $(OBJ_DIR)/debug_mode.o $(OBJ_DIR)/raycasting.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/utils2.o $(OBJ_DIR)/get_next_line_utils.o $(OBJ_DIR)/get_next_line.o
 
 # Parametri per libft
 LIBFT_DIR = libft

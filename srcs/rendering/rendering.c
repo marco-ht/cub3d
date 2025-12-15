@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 17:13:46 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 18:46:22 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_launch(t_vars *v)
 {
 	init_mlx(v);
 	init_player(&v->player, v->map);
-	mlx_loop_hook(v->mlx, loop_put_player, v);
+	mlx_loop_hook(v->mlx, loop_rendering, v);
 	mlx_hook(v->win, 2, 1L << 0, key_press, v);
 	mlx_hook(v->win, 3, 1L << 1, key_release, v);
 	mlx_hook(v->win, 17, 0, ft_exitsucces, v);

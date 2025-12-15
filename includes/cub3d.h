@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 17:51:52 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 18:45:56 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,10 +156,24 @@ void			ft_check_textures(t_vars *v, int fd);
 // Rendering
 void			ft_launch(t_vars *v);
 void			init_player(t_player *player, char **map);
-int				loop_put_player(t_vars *v);
+int				loop_rendering(t_vars *v);
 void			move_player(t_player *player, char **map);
 void			put_pixel(t_vars *v, float x, float y, int color);
+void			put_pixel_nohex(t_vars *v, float x, float y, int *color);
+void			gettime(float *prev_time, float *time_diff, long *start_sec);
+void			set_texture(t_vars *v);
+void			get_pixel_color_from_texture(t_vars *v, int tx, int ty);
+
+// Rendering utils
+void			clear_image(t_vars *v);
 int				touch(char **map, float new_x, float new_y);
+int				stouch(char **map, int map_x, int map_y);
+void			draw_ceiling(t_vars *v, int x, int y, int end);
+void			draw_floor(t_vars *v, int x, int y, int end);
+
+// Raycasting
+void			set_ray(t_vars *v);
+void			advance_ray(t_vars *v);
 
 // DEBUG MODE
 void			draw_player(t_vars *v, int color);
