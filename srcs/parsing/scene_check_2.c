@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 13:39:26 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:17 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 15:37:48 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static int	ft_check_texture(char *value, t_vars *v, int fd)
 
 void	ft_check_textures(t_vars *v, int fd)
 {
-	if (v->no[ft_strlen(v->no) - 1] == '\n')
-		v->no[ft_strlen(v->no) - 1] = '\0';
-	if (v->so[ft_strlen(v->so) - 1] == '\n')
-		v->so[ft_strlen(v->so) - 1] = '\0';
-	if (v->ea[ft_strlen(v->ea) - 1] == '\n')
-		v->ea[ft_strlen(v->ea) - 1] = '\0';
-	if (v->we[ft_strlen(v->we) - 1] == '\n')
-		v->we[ft_strlen(v->we) - 1] = '\0';
-	ft_check_texture(v->no, v, fd);
-	ft_check_texture(v->so, v, fd);
-	ft_check_texture(v->ea, v, fd);
-	ft_check_texture(v->we, v, fd);
+	if (v->no.path[ft_strlen(v->no.path) - 1] == '\n')
+		v->no.path[ft_strlen(v->no.path) - 1] = '\0';
+	if (v->so.path[ft_strlen(v->so.path) - 1] == '\n')
+		v->so.path[ft_strlen(v->so.path) - 1] = '\0';
+	if (v->ea.path[ft_strlen(v->ea.path) - 1] == '\n')
+		v->ea.path[ft_strlen(v->ea.path) - 1] = '\0';
+	if (v->we.path[ft_strlen(v->we.path) - 1] == '\n')
+		v->we.path[ft_strlen(v->we.path) - 1] = '\0';
+	ft_check_texture(v->no.path, v, fd);
+	ft_check_texture(v->so.path, v, fd);
+	ft_check_texture(v->ea.path, v, fd);
+	ft_check_texture(v->we.path, v, fd);
 }

@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:15:08 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 15:35:21 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	ft_cleanup(t_vars *v)
 {
 	if (v->scene)
 		free(v->scene);
-	if (v->no)
-		free(v->no);
-	if (v->so)
-		free(v->so);
-	if (v->we)
-		free(v->we);
-	if (v->ea)
-		free(v->ea);
+	if (v->no.path)
+		free(v->no.path);
+	if (v->so.path)
+		free(v->so.path);
+	if (v->we.path)
+		free(v->we.path);
+	if (v->ea.path)
+		free(v->ea.path);
 	if (v->fl)
 		free(v->fl);
 	if (v->ce)
@@ -32,10 +32,10 @@ void	ft_cleanup(t_vars *v)
 		ft_free_map(v->map, v->map_size);
 	if (v->map_cpy)
 		ft_freemapcpy(v);
-	if (v->mlx_img)
-		mlx_destroy_image(v->mlx, v->mlx_img);
-	if (v->mlx_win)
-		mlx_destroy_window(v->mlx, v->mlx_win);
+	if (v->img)
+		mlx_destroy_image(v->mlx, v->img);
+	if (v->win)
+		mlx_destroy_window(v->mlx, v->win);
 	if (v->mlx)
 	{
 		mlx_destroy_display(v->mlx);

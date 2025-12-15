@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:38:49 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:35 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 15:36:36 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_parse_fields(t_vars *v, int fd)
 		ft_parse_value(v, str, fd);
 		i++;
 	}
-	if (!v->no || !v->so || !v->we || !v->ea || !v->fl || !v->ce)
+	if (!v->no.path || !v->so.path || !v->we.path || !v->ea.path || !v->fl || !v->ce)
 		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
 	ft_check_textures(v, fd);
@@ -44,14 +44,14 @@ int	ft_parse_value(t_vars *v, char *str, int fd)
 	int	j;
 
 	ft_skip_spaces(&i, &j, str);
-	if (!v->no && ft_isno(i, j, str))
-		v->no = ft_strdup(&str[i]);
-	else if (!v->so && ft_isso(i, j, str))
-		v->so = ft_strdup(&str[i]);
-	else if (!v->we && ft_iswe(i, j, str))
-		v->we = ft_strdup(&str[i]);
-	else if (!v->ea && ft_isea(i, j, str))
-		v->ea = ft_strdup(&str[i]);
+	if (!v->no.path && ft_isno(i, j, str))
+		v->no.path = ft_strdup(&str[i]);
+	else if (!v->so.path && ft_isso(i, j, str))
+		v->so.path = ft_strdup(&str[i]);
+	else if (!v->we.path && ft_iswe(i, j, str))
+		v->we.path = ft_strdup(&str[i]);
+	else if (!v->ea.path && ft_isea(i, j, str))
+		v->ea.path = ft_strdup(&str[i]);
 	else if (!v->fl && ft_isf(i, j, str))
 		v->fl = ft_strdup(&str[i]);
 	else if (!v->ce && ft_isc(i, j, str))
