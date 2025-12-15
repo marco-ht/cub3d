@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 20:19:53 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 21:02:30 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	ft_launch(t_vars *v)
 	mlx_loop(v->mlx);
 }
 
-// valgrind ./cub3D "maps/example.cub"
-// valgrind --suppressions=mlx.supp ./cub3D maps/example.cub
+// valgrind ./cub3D_bonus "maps/example.cub"
+// valgrind --suppressions=mlx.supp ./cub3D_bonus maps/example.cub
