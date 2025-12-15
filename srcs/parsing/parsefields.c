@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsefields.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:38:49 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/12 15:21:59 by mpierant         ###   ########.fr       */
+/*   Updated: 2025/12/15 01:18:35 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
