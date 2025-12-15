@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:10:10 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 20:19:49 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 21:12:22 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,11 @@ int	loop_rendering(t_vars *v)
 		draw_rays(v, 0xFF0000);
 	}
 	else
+	{
 		draw_vertical_lines(v);
+		draw_minimap(v);
+		draw_miniplayer(v, 0x347434);
+	}
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
 	return (0);
 }

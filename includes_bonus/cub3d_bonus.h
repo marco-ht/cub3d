@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 20:23:51 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 21:11:52 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,5 +188,9 @@ void			ft_exitclean(t_vars *v);
 void			ft_free_map(char **map, int size);
 void			ft_freemapcpy(t_vars *v);
 int				ft_exitsucces(t_vars *v);
+
+// BONUS
+void			draw_miniplayer(t_vars *v, int color);
+void			draw_minimap(t_vars *v);
 
 #endif
