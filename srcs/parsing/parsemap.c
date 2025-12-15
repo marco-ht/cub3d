@@ -6,16 +6,11 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:31 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 17:48:16 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-// in parsefield if there are spaces after the texture path
-// the error will emerge in the grafic part
-// while trying to open the textures.
-// there might be valid spaces inside the filename itself
 
 static int	ft_check_mapstr(char *str, int fd, t_vars *v)
 {
@@ -47,7 +42,7 @@ static int	ft_checkfinished(t_vars *v, int fd)
 	return (0);
 }
 
-char	**ft_reallocmap(char **oldmap, int old_size, int new_size)
+static char	**ft_reallocmap(char **oldmap, int old_size, int new_size)
 {
 	int		i;
 	char	**newmap;
@@ -65,6 +60,19 @@ char	**ft_reallocmap(char **oldmap, int old_size, int new_size)
 	}
 	free(oldmap);
 	return (newmap);
+}
+
+static int	ft_term_map(t_vars *v, int fd)
+{
+	char	**tmp;
+	
+	tmp = ft_reallocmap(v->map, v->map_size, v->map_size + 1);
+	if (!tmp)
+		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
+			close(fd), ft_exitclean(v), 1);
+	v->map = tmp;
+	v->map[v->map_size] = NULL;
+	return (0);
 }
 
 int	ft_parse_map(t_vars *v, int fd)
@@ -90,6 +98,7 @@ int	ft_parse_map(t_vars *v, int fd)
 		str = get_next_line(fd);
 	}
 	free(str);
+	ft_term_map(v, fd);
 	ft_checkfinished(v, fd);
 	return (0);
 }

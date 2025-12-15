@@ -6,13 +6,13 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 16:04:15 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 17:13:46 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	init_textures(t_vars *v)
+static void	init_textures(t_vars *v)
 {
 	v->no.img = mlx_xpm_file_to_image(v->mlx, v->no.path, &v->no.width,
 			&v->no.height);
@@ -28,7 +28,7 @@ void	init_textures(t_vars *v)
 	v->ea.data = mlx_get_data_addr(v->ea.img, &v->ea.bpp, &v->ea.size_line, &v->ea.endian);
 }
 
-void	init_mlx(t_vars *v)
+static void	init_mlx(t_vars *v)
 {
 	v->mlx = mlx_init();
 	v->win = mlx_new_window(v->mlx, WIDTH, HEIGHT, "Raycasting");
@@ -37,7 +37,7 @@ void	init_mlx(t_vars *v)
 	init_textures(v);
 }
 
-int	key_press(int keycode, t_vars *v)
+static int	key_press(int keycode, t_vars *v)
 {
 	if (keycode == XK_Escape)
 		ft_exitsucces(v);
@@ -56,7 +56,7 @@ int	key_press(int keycode, t_vars *v)
 	return (0);
 }
 
-int	key_release(int keycode, t_vars *v)
+static int	key_release(int keycode, t_vars *v)
 {
 	if (keycode == XK_w)
 		v->player.key_up = 0;
@@ -76,6 +76,8 @@ int	key_release(int keycode, t_vars *v)
 void	ft_launch(t_vars *v)
 {
 	init_mlx(v);
+	init_player(&v->player, v->map);
+	mlx_loop_hook(v->mlx, loop_put_player, v);
 	mlx_hook(v->win, 2, 1L << 0, key_press, v);
 	mlx_hook(v->win, 3, 1L << 1, key_release, v);
 	mlx_hook(v->win, 17, 0, ft_exitsucces, v);

@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:32:22 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 17:51:52 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,16 @@ void			ft_check_textures(t_vars *v, int fd);
 
 // Rendering
 void			ft_launch(t_vars *v);
+void			init_player(t_player *player, char **map);
+int				loop_put_player(t_vars *v);
+void			move_player(t_player *player, char **map);
+void			put_pixel(t_vars *v, float x, float y, int color);
+int				touch(char **map, float new_x, float new_y);
+
+// DEBUG MODE
+void			draw_player(t_vars *v, int color);
+void			draw_map(t_vars *v);
+void			draw_rays(t_vars *v, int color);
 
 // Cleanup and exit
 void			ft_cleanup(t_vars *v);
