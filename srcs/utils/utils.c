@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:35:21 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 15:55:22 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ void	ft_cleanup(t_vars *v)
 		ft_free_map(v->map, v->map_size);
 	if (v->map_cpy)
 		ft_freemapcpy(v);
+	if (v->no.img)
+		mlx_destroy_image(v->mlx, v->no.img);
+	if (v->so.img)
+		mlx_destroy_image(v->mlx, v->so.img);
+	if (v->we.img)
+		mlx_destroy_image(v->mlx, v->we.img);
+	if (v->ea.img)
+		mlx_destroy_image(v->mlx, v->ea.img);
 	if (v->img)
 		mlx_destroy_image(v->mlx, v->img);
 	if (v->win)

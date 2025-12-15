@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:40:20 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 15:58:26 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main(int argc, char **argv)
     v.scene = ft_strdup(argv[1]);
     ft_parse(&v);
     //Here ft_launch to run the game if parsing is succesful
-    printf("%s\n", v.no.path);
     ft_launch(&v);
     ft_cleanup(&v);
     printf("DEBUG: succes.\n");
