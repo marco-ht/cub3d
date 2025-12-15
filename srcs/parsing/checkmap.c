@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:42 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:36:01 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,12 @@ int	ft_checkmap(t_vars *v)
 
 /*
 	CHECKS ON MAP:
-	DONE	1) only admitted chars (ft_check_mapstr(str) before putting the string in the map)
+	DONE	1) only admitted chars
+			(ft_check_mapstr(str) before putting the string in the map)
 	DONE	2) no chars after map, only empty lines admitted
 	DONE	3) in ft_check: there is player one and only one time
-	DONE	4) in ft_check: with flodfill closed with walls and check if player can reach spaces
+	DONE	4) in ft_check: with flodfill closed with walls
+			and check if player can reach spaces
 */
 
 /*
@@ -99,5 +101,6 @@ int	ft_checkmap(t_vars *v)
    (at least one space at beginning and end)
    we implement it in mapsqrcpy
    and then we apply floodfill recursively from player start position
-   and if we meet any space we exit (clean) with error (open walls or space reachable by player)
+   and if we meet any space we exit (clean) with error
+   (open walls or space reachable by player)
 */

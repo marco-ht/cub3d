@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:16:50 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 17:41:34 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:33:57 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	draw_player(t_vars *v, int color)
 	}
 }
 
-static void draw_sqr(t_vars *v, int pos_x, int pos_y, int color)
+static void	draw_sqr(t_vars *v, int pos_x, int pos_y, int color)
 {
 	int	x;
 	int	y;

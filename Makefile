@@ -91,6 +91,8 @@ clean:
 	$(RM) $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
 	@if [ -d "$(MLX_DIR)" ]; then $(MAKE) -C $(MLX_DIR) clean || true; fi
+	@if [ -f "$(TXT_DIR)/no_perm.xpm" ]; then chmod +r "$(TXT_DIR)/no_perm.xpm" || true; fi
+	@if [ -f "$(MAP_DIR)/no_perm.cub" ]; then chmod +r "$(MAP_DIR)/no_perm.cub" || true; fi
 
 # Pulizia completa: rimuove l'eseguibile, gli oggetti e la libft (file oggetto e libft.a)
 fclean: clean

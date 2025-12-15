@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 19:55:47 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 01:18:10 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:46:12 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_extension(t_vars *v)
 	i = 0;
 	while (v->scene[i])
 		i++;
-	if (i >= 5 && v->scene[i - 4] == '.' && v->scene[i - 3] == 'c' && v->scene[i
-		- 2] == 'u' && v->scene[i - 1] == 'b')
+	if (i >= 5 && v->scene[i - 4] == '.' && v->scene[i - 3] == 'c'
+		&& v->scene[i - 2] == 'u' && v->scene[i - 1] == 'b')
 		return ;
 	printf("Error\nExtension must be .cub (and filename at least one char)\n");
 	ft_exitclean(v);
@@ -90,11 +90,13 @@ int	ft_check_values(t_vars *v, int fd)
 {
 	if (v->f[0] < 0 || v->f[0] > 255 || v->f[1] < 0 || v->f[1] > 255
 		|| v->f[2] < 0 || v->f[2] > 255)
-		return (printf("Error\nInvalid floor colour values. Range is [0,255]\n"),
-			ft_free_gnl(fd), close(fd), ft_exitclean(v), 1);
+		return (printf("Error\nInvalid floor colour values. "),
+			printf("Range is [0,255]\n"), ft_free_gnl(fd), close(fd),
+			ft_exitclean(v), 1);
 	if (v->c[0] < 0 || v->c[0] > 255 || v->c[1] < 0 || v->c[1] > 255
 		|| v->c[2] < 0 || v->c[2] > 255)
-		return (printf("Error\nInvalid ceiling colour values. Range is [0,255]\n"),
-			ft_free_gnl(fd), close(fd), ft_exitclean(v), 1);
+		return (printf("Error\nInvalid ceiling colour values. "),
+			printf("Range is [0,255]\n"), ft_free_gnl(fd), close(fd),
+			ft_exitclean(v), 1);
 	return (0);
 }

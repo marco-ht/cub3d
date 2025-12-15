@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:40:01 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 17:48:16 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:40:38 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	**ft_reallocmap(char **oldmap, int old_size, int new_size)
 static int	ft_term_map(t_vars *v, int fd)
 {
 	char	**tmp;
-	
+
 	tmp = ft_reallocmap(v->map, v->map_size, v->map_size + 1);
 	if (!tmp)
 		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
@@ -104,7 +104,7 @@ int	ft_parse_map(t_vars *v, int fd)
 }
 
 /*
---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------
 	reasoning on parse_map
 int	ft_parse_map(t_vars *v, int fd)
 {
@@ -137,8 +137,9 @@ int	ft_parse_map(t_vars *v, int fd)
 		size++;
 
 		// free(str); no,
-		//I assign it to map(I don 't need to use ft_strdup because I don't cut it,
-		//		I keep all the string allocated by getnextline) str = get_next_line(fd);
+		//I assign it to map(I don 't need to use ft_strdup because
+		// I don't cut it, I keep all the string allocated
+		// by getnextline) str = get_next_line(fd);
 	}
 	v->map_size = size;
 	// ft_cpymap(); because we use flodfill for checking spaces

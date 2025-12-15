@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:11 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:35 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:34:10 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	set_texture(t_vars *v)
 		wall_x = (v->player.y / BLOCK) + perp * v->ray.dir_y;
 	else
 		wall_x = (v->player.x / BLOCK) + perp * v->ray.dir_x;
-	wall_x -= floor(wall_x); // [0,1)
+	wall_x -= floor(wall_x);
 	v->ray.tex_x = (int)(wall_x * v->ray.current_texture->width);
 	if (v->ray.side == 0 && v->ray.dir_x > 0)
 		v->ray.tex_x = v->ray.current_texture->width - v->ray.tex_x - 1;

@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 03:38:49 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 15:36:36 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:39:03 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	ft_parse_fields(t_vars *v, int fd)
 		ft_parse_value(v, str, fd);
 		i++;
 	}
-	if (!v->no.path || !v->so.path || !v->we.path || !v->ea.path || !v->fl || !v->ce)
+	if (!v->no.path || !v->so.path || !v->we.path || !v->ea.path || !v->fl
+		|| !v->ce)
 		return (printf("Error\nAllocation failed\n"), ft_free_gnl(fd),
 			close(fd), ft_exitclean(v), 1);
 	ft_check_textures(v, fd);

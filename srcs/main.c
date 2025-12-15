@@ -6,32 +6,31 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 19:25:05 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:32:06 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_vars	v;
-    
-    if (argc != 2)
-        return (printf("Error\nWrong number of parameters!\n"), 1);
-    ft_init(&v);
-    v.scene = ft_strdup(argv[1]);
-    ft_parse(&v);
-    ft_launch(&v);
-    ft_cleanup(&v);
-    printf("DEBUG: succes.\n");
-}
+	t_vars	v;
 
+	if (argc != 2)
+		return (printf("Error\nWrong number of parameters!\n"), 1);
+	ft_init(&v);
+	v.scene = ft_strdup(argv[1]);
+	ft_parse(&v);
+	ft_launch(&v);
+	ft_cleanup(&v);
+	printf("DEBUG: succes.\n");
+}
 
 /*
 *********** TESTS ***********
 (randomorder.cub has to works)
 (spaced name.cub has to works)
- 
+
 ./cub3D
 ./cub3D "invalid num of" "parameters"
 ./cub3D "maps/wrongextention.cubf"
@@ -96,4 +95,4 @@ valgrind ./cub3D "maps/map_openwalls.cub"
 valgrind ./cub3D "maps/map_spaceinside.cub"
 */
 
-//valgrind --leak-check=full --show-leak-kinds=all
+// valgrind --leak-check=full --show-leak-kinds=all

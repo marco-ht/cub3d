@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 18:46:22 by mpierant &       ###   ########.fr       */
+/*   Updated: 2025/12/15 19:34:33 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ static void	init_textures(t_vars *v)
 			&v->we.height);
 	v->ea.img = mlx_xpm_file_to_image(v->mlx, v->ea.path, &v->ea.width,
 			&v->ea.height);
-	v->no.data = mlx_get_data_addr(v->no.img, &v->no.bpp, &v->no.size_line, &v->no.endian);
-	v->so.data = mlx_get_data_addr(v->so.img, &v->so.bpp, &v->so.size_line, &v->so.endian);
-	v->we.data = mlx_get_data_addr(v->we.img, &v->we.bpp, &v->we.size_line, &v->we.endian);
-	v->ea.data = mlx_get_data_addr(v->ea.img, &v->ea.bpp, &v->ea.size_line, &v->ea.endian);
+	v->no.data = mlx_get_data_addr(v->no.img, &v->no.bpp, &v->no.size_line,
+			&v->no.endian);
+	v->so.data = mlx_get_data_addr(v->so.img, &v->so.bpp, &v->so.size_line,
+			&v->so.endian);
+	v->we.data = mlx_get_data_addr(v->we.img, &v->we.bpp, &v->we.size_line,
+			&v->we.endian);
+	v->ea.data = mlx_get_data_addr(v->ea.img, &v->ea.bpp, &v->ea.size_line,
+			&v->ea.endian);
 }
 
 static void	init_mlx(t_vars *v)
@@ -84,5 +88,5 @@ void	ft_launch(t_vars *v)
 	mlx_loop(v->mlx);
 }
 
-//valgrind ./cub3D "maps/example.cub"
-//valgrind --suppressions=mlx.supp ./cub3D maps/example.cub
+// valgrind ./cub3D "maps/example.cub"
+// valgrind --suppressions=mlx.supp ./cub3D maps/example.cub
