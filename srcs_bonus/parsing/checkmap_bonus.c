@@ -38,21 +38,43 @@ static int	ft_check_player(t_vars *v)
 	return (0);
 }
 
-static void	ft_flodfill(t_point p, char **map, t_vars *v)
+static int	ft_is_walkable(char c)
 {
-	if (map[p.y][p.x] == ' ')
-	{
+	return (c == '0' || c == 'O' || c == 'N' || c == 'S'
+		|| c == 'E' || c == 'W' || c == 'D');
+}
+
+static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
+{
+	if (x > 0 && ft_is_walkable(map[y][x - 1]))
 		v->error_walls = 1;
-		return ;
+	if (map[y][x + 1] && ft_is_walkable(map[y][x + 1]))
+		v->error_walls = 1;
+	if (y > 0 && map[y - 1] && x < (int)ft_strlen(map[y - 1])
+		&& ft_is_walkable(map[y - 1][x]))
+		v->error_walls = 1;
+	if (map[y + 1] && x < (int)ft_strlen(map[y + 1])
+		&& ft_is_walkable(map[y + 1][x]))
+		v->error_walls = 1;
+}
+
+static void	ft_check_spaces(char **map, t_vars *v)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == ' ')
+				ft_check_adjacent(map, x, y, v);
+			x++;
+		}
+		y++;
 	}
-	if (map[p.y][p.x] == '1' || map[p.y][p.x] == '*' || map[p.y][p.x] == 'D')
-		return ;
-	if (map[p.y][p.x] == '0' || map[p.y][p.x] == 'O')
-		map[p.y][p.x] = '*';
-	ft_flodfill((t_point){p.x + 1, p.y}, map, v);
-	ft_flodfill((t_point){p.x - 1, p.y}, map, v);
-	ft_flodfill((t_point){p.x, p.y + 1}, map, v);
-	ft_flodfill((t_point){p.x, p.y - 1}, map, v);
 }
 
 static void	ft_printcpymap(t_vars *v)
@@ -69,14 +91,10 @@ static void	ft_printcpymap(t_vars *v)
 
 int	ft_checkmap(t_vars *v)
 {
-	t_point	p;
-
 	ft_check_player(v);
 	ft_cpysqrmap(v);
-	p.x = v->map_cpy_x_p;
-	p.y = v->map_cpy_y_p;
 	v->error_walls = 0;
-	ft_flodfill(p, v->map_cpy, v);
+	ft_check_spaces(v->map_cpy, v);
 	if (v->error_walls)
 		return (printf("Error\nOpen walls or space reachable by player\n"),
 			ft_printcpymap(v), ft_exitclean(v), 1);

@@ -99,11 +99,12 @@ int	ft_cpysqrmap(t_vars *v)
 	int		max_len;
 
 	max_len = ft_maxlen(v);
-	v->map_cpy = ft_calloc((v->map_size + 2), sizeof(char *));
+	v->map_cpy = ft_calloc((v->map_size + 3), sizeof(char *));
 	if (!v->map_cpy)
 		return (printf("Error\nAllocation failed\n"), ft_exitclean(v), 1);
 	v->map_cpy[0] = ft_strspace(max_len + 2, v);
 	v->map_cpy[v->map_size + 1] = ft_strspace(max_len + 2, v);
+	v->map_cpy[v->map_size + 2] = NULL;
 	i = 0;
 	while (i < v->map_size)
 	{

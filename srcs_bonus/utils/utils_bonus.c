@@ -18,18 +18,21 @@ static void	ft_cleanup2(t_vars *v)
 		ft_free_map(v->map, v->map_size);
 	if (v->map_cpy)
 		ft_freemapcpy(v);
-	if (v->no.img)
-		mlx_destroy_image(v->mlx, v->no.img);
-	if (v->so.img)
-		mlx_destroy_image(v->mlx, v->so.img);
-	if (v->we.img)
-		mlx_destroy_image(v->mlx, v->we.img);
-	if (v->ea.img)
-		mlx_destroy_image(v->mlx, v->ea.img);
-	if (v->img)
-		mlx_destroy_image(v->mlx, v->img);
-	if (v->win)
-		mlx_destroy_window(v->mlx, v->win);
+	if (v->mlx)
+	{
+		if (v->no.img)
+			mlx_destroy_image(v->mlx, v->no.img);
+		if (v->so.img)
+			mlx_destroy_image(v->mlx, v->so.img);
+		if (v->we.img)
+			mlx_destroy_image(v->mlx, v->we.img);
+		if (v->ea.img)
+			mlx_destroy_image(v->mlx, v->ea.img);
+		if (v->img)
+			mlx_destroy_image(v->mlx, v->img);
+		if (v->win)
+			mlx_destroy_window(v->mlx, v->win);
+	}
 #ifndef __APPLE__
 	if (v->mlx)
 	{
