@@ -30,11 +30,13 @@ static void	ft_cleanup2(t_vars *v)
 		mlx_destroy_image(v->mlx, v->img);
 	if (v->win)
 		mlx_destroy_window(v->mlx, v->win);
+#ifndef __APPLE__
 	if (v->mlx)
 	{
 		mlx_destroy_display(v->mlx);
 		free(v->mlx);
 	}
+#endif
 }
 
 void	ft_cleanup(t_vars *v)

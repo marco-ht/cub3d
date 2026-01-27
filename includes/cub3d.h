@@ -14,7 +14,20 @@
 # define CUB3D_H
 
 # include "../libft/libft.h"
-# include <X11/keysym.h>
+
+// Keysym definitions for macOS/Linux compatibility
+# ifdef __APPLE__
+#  define XK_Escape 53
+#  define XK_w 13
+#  define XK_s 1
+#  define XK_a 0
+#  define XK_d 2
+#  define XK_Left 123
+#  define XK_Right 124
+# else
+#  include <X11/keysym.h>
+# endif
+
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>

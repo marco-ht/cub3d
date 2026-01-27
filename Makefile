@@ -4,8 +4,20 @@ NAMEB	= cub3D_bonus
 
 # Compiler e flags
 CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra -Iminilibx-linux
+CFLAGS  = -Wall -Werror -Wextra -Iminilibx
 LDLIBS   = -lm
+
+# Detect OS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    MLX_DIR = minilibx
+    MLX_LIB = $(MLX_DIR)/libmlx.a
+    MLX_FLAGS = -framework OpenGL -framework AppKit
+else
+    MLX_DIR = minilibx-linux
+    MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
+    MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lz -lbsd
+endif
 
 # Directory dei sorgenti e degli oggetti
 SRC_DIR = srcs
@@ -36,8 +48,7 @@ OBJB     = $(OBJ_DIR)/main_bonus.o $(OBJ_DIR)/parsing_bonus.o $(OBJ_DIR)/parsefi
 LIBFT_DIR = libft
 LIBFT    = $(LIBFT_DIR)/libft.a
 
-# MinilibX
-MLX_DIR = minilibx-linux
+# MinilibX (definito sopra in base al sistema operativo)
 
 # Comando di rimozione
 RM      = rm -rf
@@ -46,7 +57,7 @@ RM      = rm -rf
 all: $(NAME)
 
 # Compila MinilibX se presente
-$(MLX_DIR)/libmlx_Linux.a:
+$(MLX_LIB):
 	@if [ -d "$(MLX_DIR)" ]; then \
 		if [ -f "$(MLX_DIR)/configure" ]; then \
 			chmod +x "$(MLX_DIR)/configure" || true; \
@@ -63,11 +74,11 @@ $(MLX_DIR)/libmlx_Linux.a:
 	fi
 
 # Regola per creare l'eseguibile, dipendente da oggetti e dalla libft compilata
-$(NAME): $(OBJ) $(LIBFT) $(MLX_DIR)/libmlx_Linux.a
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz -lbsd -o $(NAME) $(LDLIBS)
+$(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX_LIB) $(MLX_FLAGS) -o $(NAME) $(LDLIBS)
 
-bonus: $(OBJB) $(LIBFT) $(MLX_DIR)/libmlx_Linux.a
-	$(CC) $(CFLAGS) $(OBJB) $(LIBFT) -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz -lbsd -o $(NAMEB) $(LDLIBS)
+bonus: $(OBJB) $(LIBFT) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJB) $(LIBFT) $(MLX_LIB) $(MLX_FLAGS) -o $(NAMEB) $(LDLIBS)
 
 # Regola per compilare i file .c in file .o all'interno della directory obj
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -128,7 +139,7 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(NAMEB)
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	@if [ -f "$(MLX_DIR)/libmlx_Linux.a" ]; then rm -f $(MLX_DIR)/libmlx_Linux.a; fi
+	@if [ -f "$(MLX_LIB)" ]; then rm -f $(MLX_LIB); fi
 
 # Ricompilazione totale
 re: fclean all
