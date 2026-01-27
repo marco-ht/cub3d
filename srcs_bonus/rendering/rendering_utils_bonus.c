@@ -22,14 +22,20 @@ void	clear_image(t_vars *v)
 
 int	touch(char **map, float new_x, float new_y)
 {
-	if (map[(int)new_y / BLOCK][(int)new_x / BLOCK] == '1')
+	char	c;
+
+	c = map[(int)new_y / BLOCK][(int)new_x / BLOCK];
+	if (c == '1' || c == 'D')
 		return (1);
 	return (0);
 }
 
 int	stouch(char **map, int map_x, int map_y)
 {
-	if (map[map_y][map_x] == '1')
+	char	c;
+
+	c = map[map_y][map_x];
+	if (c == '1' || c == 'D')
 		return (1);
 	return (0);
 }

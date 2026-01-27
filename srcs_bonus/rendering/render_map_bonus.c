@@ -67,6 +67,17 @@ static void	draw_minisqr(t_vars *v, int pos_x, int pos_y, int color)
 	}
 }
 
+static int	get_minimap_color(char c)
+{
+	if (c == '1')
+		return (0x676767);
+	if (c == 'D')
+		return (0x8B4513);
+	if (c == 'O')
+		return (0x2E8B57);
+	return (0xFFFFFF);
+}
+
 void	draw_minimap(t_vars *v)
 {
 	int		j;
@@ -80,10 +91,7 @@ void	draw_minimap(t_vars *v)
 		i = 0;
 		while (map[j][i])
 		{
-			if (map[j][i] == '1')
-				draw_minisqr(v, i * 5, j * 5, 0x676767);
-			else
-				draw_minisqr(v, i * 5, j * 5, 0xFFFFFF);
+			draw_minisqr(v, i * 5, j * 5, get_minimap_color(map[j][i]));
 			i++;
 		}
 		j++;

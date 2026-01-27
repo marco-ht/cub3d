@@ -20,7 +20,8 @@ static int	ft_check_mapstr(char *str, int fd, t_vars *v)
 	while (str[i] && str[i] != '\n')
 	{
 		if (str[i] != '0' && str[i] != '1' && str[i] != 'N' && str[i] != 'S'
-			&& str[i] != 'E' && str[i] != 'W' && str[i] != ' ')
+			&& str[i] != 'E' && str[i] != 'W' && str[i] != ' '
+			&& str[i] != 'D')
 			return (printf("Error\nInvalid character '%c' in the map\n",
 					str[i]), ft_free_gnl(fd), close(fd), free(str),
 				ft_exitclean(v), 1);

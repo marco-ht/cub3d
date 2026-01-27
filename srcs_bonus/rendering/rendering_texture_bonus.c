@@ -12,12 +12,11 @@
 
 #include "../../includes_bonus/cub3d_bonus.h"
 
-void	set_texture(t_vars *v)
+static void	select_wall_texture(t_vars *v)
 {
-	double	wall_x;
-	double	perp;
-
-	if (!v->ray.side && v->ray.dir_x > 0)
+	if (v->ray.hit_door && v->door.img)
+		v->ray.current_texture = &v->door;
+	else if (!v->ray.side && v->ray.dir_x > 0)
 		v->ray.current_texture = &v->ea;
 	else if (!v->ray.side && v->ray.dir_x < 0)
 		v->ray.current_texture = &v->we;
@@ -25,6 +24,14 @@ void	set_texture(t_vars *v)
 		v->ray.current_texture = &v->so;
 	else
 		v->ray.current_texture = &v->no;
+}
+
+void	set_texture(t_vars *v)
+{
+	double	wall_x;
+	double	perp;
+
+	select_wall_texture(v);
 	if (v->ray.side == 0)
 		perp = v->ray.dist_x - v->ray.delta_x;
 	else

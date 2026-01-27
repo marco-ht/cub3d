@@ -57,6 +57,8 @@ static int	key_press(int keycode, t_vars *v)
 		v->player.key_rotleft = 1;
 	if (keycode == XK_Right)
 		v->player.key_rotright = 1;
+	if (keycode == XK_e || keycode == XK_space)
+		toggle_door(v);
 	return (0);
 }
 
@@ -81,9 +83,12 @@ void	ft_launch(t_vars *v)
 {
 	init_mlx(v);
 	init_player(&v->player, v->map);
+	v->mouse_x = WIDTH / 2;
+	v->mouse_enabled = 1;
 	mlx_loop_hook(v->mlx, loop_rendering, v);
 	mlx_hook(v->win, 2, 1L << 0, key_press, v);
 	mlx_hook(v->win, 3, 1L << 1, key_release, v);
+	mlx_hook(v->win, 6, 1L << 6, mouse_move, v);
 	mlx_hook(v->win, 17, 0, ft_exitsucces, v);
 	mlx_loop(v->mlx);
 }

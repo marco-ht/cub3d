@@ -45,9 +45,9 @@ static void	ft_flodfill(t_point p, char **map, t_vars *v)
 		v->error_walls = 1;
 		return ;
 	}
-	if (map[p.y][p.x] == '1' || map[p.y][p.x] == '*')
+	if (map[p.y][p.x] == '1' || map[p.y][p.x] == '*' || map[p.y][p.x] == 'D')
 		return ;
-	if (map[p.y][p.x] == '0')
+	if (map[p.y][p.x] == '0' || map[p.y][p.x] == 'O')
 		map[p.y][p.x] = '*';
 	ft_flodfill((t_point){p.x + 1, p.y}, map, v);
 	ft_flodfill((t_point){p.x - 1, p.y}, map, v);

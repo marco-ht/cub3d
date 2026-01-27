@@ -22,11 +22,16 @@
 #  define XK_s 1
 #  define XK_a 0
 #  define XK_d 2
+#  define XK_e 14
+#  define XK_space 49
 #  define XK_Left 123
 #  define XK_Right 124
 # else
 #  include <X11/keysym.h>
 # endif
+
+// Mouse sensitivity
+# define MOUSE_SENSITIVITY 0.002
 
 # include <errno.h>
 # include <fcntl.h>
@@ -104,6 +109,7 @@ typedef struct s_ray
 	double		dist_x;
 	double		dist_y;
 	int			side;
+	int			hit_door;
 	t_texture	*current_texture;
 	int			current_pixel[3];
 	int			dist_real;
@@ -118,6 +124,7 @@ typedef struct s_vars
 	t_texture	so;
 	t_texture	we;
 	t_texture	ea;
+	t_texture	door;
 	char		*fl;
 	char		*ce;
 	int			f[3];
@@ -137,6 +144,8 @@ typedef struct s_vars
 	int			endian;
 	t_player	player;
 	t_ray		ray;
+	int			mouse_x;
+	int			mouse_enabled;
 }				t_vars;
 
 // Initialization
@@ -205,5 +214,13 @@ int				ft_exitsucces(t_vars *v);
 // BONUS
 void			draw_miniplayer(t_vars *v, int color);
 void			draw_minimap(t_vars *v);
+
+// Doors
+void			toggle_door(t_vars *v);
+int				is_door(char c);
+int				is_door_closed(char c);
+
+// Mouse
+int				mouse_move(int x, int y, t_vars *v);
 
 #endif

@@ -45,10 +45,13 @@ static void	draw_vertical_line(t_vars *v, int x)
 	float	height;
 	int		wall_start_y;
 	int		wall_end_y;
+	char	hit_char;
 
 	set_ray(v);
 	while (!stouch(v->map, v->ray.map_x, v->ray.map_y))
 		advance_ray(v);
+	hit_char = v->map[v->ray.map_y][v->ray.map_x];
+	v->ray.hit_door = (hit_char == 'D');
 	if (v->ray.side == 0)
 		dist = (v->ray.dist_x - v->ray.delta_x);
 	else
