@@ -28,6 +28,8 @@ static void	ft_cleanup2(t_vars *v)
 			mlx_destroy_image(v->mlx, v->we.img);
 		if (v->ea.img)
 			mlx_destroy_image(v->mlx, v->ea.img);
+		if (v->door.img)
+			mlx_destroy_image(v->mlx, v->door.img);
 		if (v->img)
 			mlx_destroy_image(v->mlx, v->img);
 		if (v->win)

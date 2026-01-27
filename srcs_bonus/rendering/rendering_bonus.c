@@ -22,6 +22,8 @@ static void	init_textures(t_vars *v)
 			&v->we.height);
 	v->ea.img = mlx_xpm_file_to_image(v->mlx, v->ea.path, &v->ea.width,
 			&v->ea.height);
+	v->door.img = mlx_xpm_file_to_image(v->mlx, "./textures/gate.xpm",
+			&v->door.width, &v->door.height);
 	v->no.data = mlx_get_data_addr(v->no.img, &v->no.bpp, &v->no.size_line,
 			&v->no.endian);
 	v->so.data = mlx_get_data_addr(v->so.img, &v->so.bpp, &v->so.size_line,
@@ -30,6 +32,9 @@ static void	init_textures(t_vars *v)
 			&v->we.endian);
 	v->ea.data = mlx_get_data_addr(v->ea.img, &v->ea.bpp, &v->ea.size_line,
 			&v->ea.endian);
+	if (v->door.img)
+		v->door.data = mlx_get_data_addr(v->door.img, &v->door.bpp,
+				&v->door.size_line, &v->door.endian);
 }
 
 static void	init_mlx(t_vars *v)
