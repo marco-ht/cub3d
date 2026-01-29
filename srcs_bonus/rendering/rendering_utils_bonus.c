@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
+/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:40:14 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 20:19:36 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/01/29 17:27:14 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,6 @@ void	clear_image(t_vars *v)
 
 	bytes = (size_t)HEIGHT * v->size_line;
 	ft_memset(v->data, 0, bytes);
-}
-
-int	touch(char **map, float new_x, float new_y)
-{
-	char	c;
-
-	c = map[(int)new_y / BLOCK][(int)new_x / BLOCK];
-	if (c == '1' || c == 'D')
-		return (1);
-	return (0);
-}
-
-int	stouch(char **map, int map_x, int map_y)
-{
-	char	c;
-
-	c = map[map_y][map_x];
-	if (c == '1' || c == 'D')
-		return (1);
-	return (0);
 }
 
 void	draw_ceiling(t_vars *v, int x, int y, int end)
