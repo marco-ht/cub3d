@@ -14,6 +14,8 @@
 
 static void	ft_cleanup2(t_vars *v)
 {
+	int	i;
+
 	if (v->map)
 		ft_free_map(v->map, v->map_size);
 	if (v->map_cpy)
@@ -30,6 +32,10 @@ static void	ft_cleanup2(t_vars *v)
 			mlx_destroy_image(v->mlx, v->ea.img);
 		if (v->door.img)
 			mlx_destroy_image(v->mlx, v->door.img);
+		i = -1;
+		while (++i < NUM_WALK_FRAMES)
+			if (v->walk_frames[i].img)
+				mlx_destroy_image(v->mlx, v->walk_frames[i].img);
 		if (v->img)
 			mlx_destroy_image(v->mlx, v->img);
 		if (v->win)

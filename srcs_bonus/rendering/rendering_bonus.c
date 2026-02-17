@@ -35,6 +35,7 @@ static void	init_textures(t_vars *v)
 	if (v->door.img)
 		v->door.data = mlx_get_data_addr(v->door.img, &v->door.bpp,
 				&v->door.size_line, &v->door.endian);
+	load_walk_frames(v);
 }
 
 static void	init_mlx(t_vars *v)

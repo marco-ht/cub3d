@@ -105,5 +105,6 @@ int	loop_rendering(t_vars *v)
 		draw_miniplayer(v, 0x347434);
 	}
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
+	draw_walk_animation(v);
 	return (0);
 }

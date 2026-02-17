@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
+/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 21:11:52 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/02/17 18:30:26 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@
 
 // Mouse sensitivity
 # define MOUSE_SENSITIVITY 0.002
+
+// Walk animation
+# define NUM_WALK_FRAMES 5
+# define FRAME_SPEED 5
+# define SPRITE_WIDTH 100
+# define SPRITE_HEIGHT 100
+# define SPRITE_X (WIDTH - SPRITE_WIDTH - 18)
+# define SPRITE_Y 18
 
 # include <errno.h>
 # include <fcntl.h>
@@ -145,6 +153,9 @@ typedef struct s_vars
 	t_player	player;
 	t_ray		ray;
 	int			mouse_enabled;
+	t_texture	walk_frames[5];
+	int			current_frame;
+	int			frame_counter;
 }				t_vars;
 
 // Initialization
@@ -222,5 +233,9 @@ int				is_door_closed(char c);
 // Mouse
 int				mouse_move(int x, int y, t_vars *v);
 int				mouse_click(int button, int x, int y, t_vars *v);
+
+// Walk animation
+void			load_walk_frames(t_vars *v);
+void			draw_walk_animation(t_vars *v);
 
 #endif
