@@ -88,12 +88,14 @@ void	ft_launch(t_vars *v)
 {
 	init_mlx(v);
 	init_player(&v->player, v->map);
-	v->mouse_x = WIDTH / 2;
 	v->mouse_enabled = 1;
+	mlx_mouse_hide();
+	mlx_mouse_move(v->win, WIDTH / 2, HEIGHT / 2);
 	mlx_loop_hook(v->mlx, loop_rendering, v);
 	mlx_hook(v->win, 2, 1L << 0, key_press, v);
 	mlx_hook(v->win, 3, 1L << 1, key_release, v);
 	mlx_hook(v->win, 6, 1L << 6, mouse_move, v);
+	mlx_mouse_hook(v->win, mouse_click, v);
 	mlx_hook(v->win, 17, 0, ft_exitsucces, v);
 	mlx_loop(v->mlx);
 }

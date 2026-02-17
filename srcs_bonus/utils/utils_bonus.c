@@ -71,6 +71,7 @@ void	ft_exitclean(t_vars *v)
 
 int	ft_exitsucces(t_vars *v)
 {
+	mlx_mouse_show();
 	ft_cleanup(v);
 	exit(0);
 	return (0);

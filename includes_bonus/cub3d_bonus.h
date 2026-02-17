@@ -144,7 +144,6 @@ typedef struct s_vars
 	int			endian;
 	t_player	player;
 	t_ray		ray;
-	int			mouse_x;
 	int			mouse_enabled;
 }				t_vars;
 
@@ -222,5 +221,6 @@ int				is_door_closed(char c);
 
 // Mouse
 int				mouse_move(int x, int y, t_vars *v);
+int				mouse_click(int button, int x, int y, t_vars *v);
 
 #endif
