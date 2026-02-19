@@ -4,7 +4,7 @@ NAMEB	= cub3D_bonus
 
 # Compiler e flags
 CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra -Iminilibx
+CFLAGS  = -Wall -Werror -Wextra -I$(MLX_DIR)
 LDLIBS   = -lm
 
 # Detect OS
