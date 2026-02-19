@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:09:46 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 20:20:07 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/02/19 18:28:56 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void	gettime(float *prev_time, float *time_diff, long *start_sec)
 	if (*prev_time == 0)
 		*prev_time = 0.016f;
 	*time_diff = current_time - *prev_time;
+	if (*time_diff > 0.05f)
+    *time_diff = 0.05f;
 	*prev_time = current_time;
 }
