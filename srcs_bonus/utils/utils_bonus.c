@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
+/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 20:30:56 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/04 14:17:28 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_exitclean(t_vars *v)
 
 int	ft_exitsucces(t_vars *v)
 {
-	mlx_mouse_show();
+	mlx_mouse_show(v->mlx, v->win);
 	ft_cleanup(v);
 	exit(0);
 	return (0);

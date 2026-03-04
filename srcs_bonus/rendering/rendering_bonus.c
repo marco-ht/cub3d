@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
+/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:12:02 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 21:02:30 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/04 14:14:23 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void	ft_launch(t_vars *v)
 	init_mlx(v);
 	init_player(&v->player, v->map);
 	v->mouse_enabled = 1;
-	mlx_mouse_hide();
-	mlx_mouse_move(v->win, WIDTH / 2, HEIGHT / 2);
+	mlx_mouse_hide(v->mlx, v->win);
+	mlx_mouse_move(v->mlx, v->win, WIDTH / 2, HEIGHT / 2);
 	mlx_loop_hook(v->mlx, loop_rendering, v);
 	mlx_hook(v->win, 2, 1L << 0, key_press, v);
 	mlx_hook(v->win, 3, 1L << 1, key_release, v);

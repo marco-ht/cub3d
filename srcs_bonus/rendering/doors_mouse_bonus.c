@@ -68,7 +68,7 @@ int	mouse_move(int x, int y, t_vars *v)
 		v->player.angle -= 2 * PI;
 	if (v->player.angle < 0)
 		v->player.angle += 2 * PI;
-	mlx_mouse_move(v->win, WIDTH / 2, HEIGHT / 2);
+	mlx_mouse_move(v->mlx, v->win, WIDTH / 2, HEIGHT / 2);
 	return (0);
 }
 
@@ -80,8 +80,8 @@ int	mouse_click(int button, int x, int y, t_vars *v)
 	if (!v->mouse_enabled)
 	{
 		v->mouse_enabled = 1;
-		mlx_mouse_hide();
-		mlx_mouse_move(v->win, WIDTH / 2, HEIGHT / 2);
+		mlx_mouse_hide(v->mlx, v->win);
+		mlx_mouse_move(v->mlx, v->win, WIDTH / 2, HEIGHT / 2);
 	}
 	return (0);
 }
