@@ -19,8 +19,8 @@ void	ft_extension(t_vars *v)
 	i = 0;
 	while (v->scene[i])
 		i++;
-	if (i >= 5 && v->scene[i - 4] == '.' && v->scene[i - 3] == 'c'
-		&& v->scene[i - 2] == 'u' && v->scene[i - 1] == 'b')
+	if (i >= 5 && v->scene[i - 4] == '.' && v->scene[i - 3] == 'c' && v->scene[i
+		- 2] == 'u' && v->scene[i - 1] == 'b')
 		return ;
 	printf("Error\nExtension must be .cub (and filename at least one char)\n");
 	ft_exitclean(v);

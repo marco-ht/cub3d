@@ -18,8 +18,8 @@ static int	ft_check_texture(char *value, t_vars *v, int fd)
 	int	i;
 
 	i = ft_strlen(value);
-	if (!(i >= 5 && value[i - 4] == '.' && value[i - 3] == 'x'
-			&& value[i - 2] == 'p' && value[i - 1] == 'm'))
+	if (!(i >= 5 && value[i - 4] == '.' && value[i - 3] == 'x' && value[i
+			- 2] == 'p' && value[i - 1] == 'm'))
 		return (printf("Error\nTextures must be .xpm files "),
 			printf("(and filename at least one char)\n"),
 			printf("Therefore '%s' is not a valid texture file path\n", value),

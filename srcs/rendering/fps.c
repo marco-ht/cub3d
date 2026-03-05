@@ -26,6 +26,6 @@ void	gettime(float *prev_time, float *time_diff, long *start_sec)
 		*prev_time = 0.016f;
 	*time_diff = current_time - *prev_time;
 	if (*time_diff > 0.05f)
-    *time_diff = 0.05f;
+		*time_diff = 0.05f;
 	*prev_time = current_time;
 }

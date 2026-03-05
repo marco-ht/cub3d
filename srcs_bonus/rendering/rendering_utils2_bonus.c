@@ -66,7 +66,7 @@ int	touch(char **map, float new_x, float new_y)
 
 int	stouch(char **map, int map_x, int map_y)
 {
-	char	c;
+	char c;
 
 	if (!is_s_valid(map, map_x, map_y))
 		return (1);

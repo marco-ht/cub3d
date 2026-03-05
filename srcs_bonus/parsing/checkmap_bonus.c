@@ -40,8 +40,8 @@ static int	ft_check_player(t_vars *v)
 
 static int	ft_is_walkable(char c)
 {
-	return (c == '0' || c == 'O' || c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W' || c == 'D');
+	return (c == '0' || c == 'O' || c == 'N' || c == 'S' || c == 'E' || c == 'W'
+		|| c == 'D');
 }
 
 static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
@@ -53,8 +53,8 @@ static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
 	if (y > 0 && map[y - 1] && x < (int)ft_strlen(map[y - 1])
 		&& ft_is_walkable(map[y - 1][x]))
 		v->error_walls = 1;
-	if (map[y + 1] && x < (int)ft_strlen(map[y + 1])
-		&& ft_is_walkable(map[y + 1][x]))
+	if (map[y + 1] && x < (int)ft_strlen(map[y + 1]) && ft_is_walkable(map[y
+			+ 1][x]))
 		v->error_walls = 1;
 }
 

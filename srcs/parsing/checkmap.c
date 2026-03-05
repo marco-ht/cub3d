@@ -52,8 +52,8 @@ static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
 	if (y > 0 && map[y - 1] && x < (int)ft_strlen(map[y - 1])
 		&& ft_is_walkable(map[y - 1][x]))
 		v->error_walls = 1;
-	if (map[y + 1] && x < (int)ft_strlen(map[y + 1])
-		&& ft_is_walkable(map[y + 1][x]))
+	if (map[y + 1] && x < (int)ft_strlen(map[y + 1]) && ft_is_walkable(map[y
+			+ 1][x]))
 		v->error_walls = 1;
 }
 

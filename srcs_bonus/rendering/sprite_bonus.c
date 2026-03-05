@@ -14,12 +14,12 @@
 
 static void	scale_frame(t_vars *v, t_texture *src, t_texture *dst)
 {
-	int		x;
-	int		y;
-	int		src_x;
-	int		src_y;
-	int		src_idx;
-	int		dst_idx;
+	int	x;
+	int	y;
+	int	src_x;
+	int	src_y;
+	int	src_idx;
+	int	dst_idx;
 
 	dst->img = mlx_new_image(v->mlx, SPRITE_WIDTH, SPRITE_HEIGHT);
 	dst->data = mlx_get_data_addr(dst->img, &dst->bpp, &dst->size_line,
@@ -74,8 +74,8 @@ void	load_walk_frames(t_vars *v)
 
 static int	is_player_moving(t_vars *v)
 {
-	return (v->player.key_up || v->player.key_down
-		|| v->player.key_left || v->player.key_right);
+	return (v->player.key_up || v->player.key_down || v->player.key_left
+		|| v->player.key_right);
 }
 
 void	draw_walk_animation(t_vars *v)

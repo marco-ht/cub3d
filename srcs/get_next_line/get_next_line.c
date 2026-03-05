@@ -91,7 +91,7 @@ static char	*ft_afterpart(char *str)
 		i++;
 	if (str[i] == '\0')
 		return (free(str), NULL);
-	afterpart = (char *) ft_calloc(ft_strlen(str) - i + 1, sizeof(char));
+	afterpart = (char *)ft_calloc(ft_strlen(str) - i + 1, sizeof(char));
 	if (afterpart == NULL)
 		return (NULL);
 	i++;
@@ -116,7 +116,7 @@ char	*get_next_line(int fd)
 		return (free(str), str = NULL, NULL);
 	if (str == NULL)
 	{
-		str = (char *) ft_calloc(1, sizeof(char));
+		str = (char *)ft_calloc(1, sizeof(char));
 		if (str == NULL)
 			return (NULL);
 	}
