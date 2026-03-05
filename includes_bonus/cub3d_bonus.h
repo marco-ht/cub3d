@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2026/02/17 18:30:26 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:51:55 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@
 
 // Keysym definitions for macOS/Linux compatibility
 # ifdef __APPLE__
-#  define XK_Escape 53
-#  define XK_w 13
-#  define XK_s 1
-#  define XK_a 0
-#  define XK_d 2
-#  define XK_e 14
-#  define XK_space 49
-#  define XK_Left 123
-#  define XK_Right 124
+#  define XK_ESCAPE 53
+#  define XK_W 13
+#  define XK_S 1
+#  define XK_A 0
+#  define XK_D 2
+#  define XK_LEFT 123
+#  define XK_RIGHT 124
 # else
 #  include <X11/keysym.h>
 # endif

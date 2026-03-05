@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
+/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 20:30:20 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/05 15:54:44 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static void	ft_cleanup2(t_vars *v)
 		if (v->win)
 			mlx_destroy_window(v->mlx, v->win);
 	}
-#ifndef __APPLE__
-	if (v->mlx)
-	{
-		mlx_destroy_display(v->mlx);
-		free(v->mlx);
-	}
-#endif
+	#ifndef __APPLE__
+		if (v->mlx)
+		{
+			mlx_destroy_display(v->mlx);
+			free(v->mlx);
+		}
+	#endif
 }
 
 void	ft_cleanup(t_vars *v)
