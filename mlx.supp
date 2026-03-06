@@ -4,3 +4,51 @@
     writev(vector[0])
     fun:writev
 }
+{
+    mlx_mouse_hide_xcursor
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:mlx_mouse_hide
+}
+{
+    mlx_mouse_hide_xlc
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:_XOpenLC
+}
+{
+    mlx_mouse_hide_xrm
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:XrmGetStringDatabase
+}
+{
+    mlx_mouse_hide_xgetdefault
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:XGetDefault
+}
+{
+    mlx_dlopen
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:dlopen*
+}
+{
+    dlopen_reachable
+    Memcheck:Leak
+    match-leak-kinds: reachable
+    fun:*alloc
+    ...
+    fun:_dl_open
+}
