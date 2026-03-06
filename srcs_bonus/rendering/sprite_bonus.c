@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 17:38:59 by mpierant &        #+#    #+#             */
-/*   Updated: 2026/03/06 17:57:47 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 18:04:59 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ static int	is_player_moving(t_vars *v)
 
 void	draw_walk_animation(t_vars *v)
 {
+	int	sprite_x;
+	
+	sprite_x = WIDTH - SPRITE_WIDTH - 18;
 	if (!is_player_moving(v))
 	{
 		v->frame_counter = 0;
@@ -91,5 +94,5 @@ void	draw_walk_animation(t_vars *v)
 	}
 	if (v->walk_frames[v->current_frame].img)
 		mlx_put_image_to_window(v->mlx, v->win,
-			v->walk_frames[v->current_frame].img, SPRITE_X, SPRITE_Y);
+			v->walk_frames[v->current_frame].img, sprite_x, SPRITE_Y);
 }

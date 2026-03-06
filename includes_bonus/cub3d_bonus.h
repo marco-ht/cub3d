@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/06 17:56:16 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 18:05:04 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define FRAME_SPEED 5
 # define SPRITE_WIDTH 100
 # define SPRITE_HEIGHT 100
-# define SPRITE_X (WIDTH - SPRITE_WIDTH - 18)
+//# define SPRITE_X (WIDTH - SPRITE_WIDTH - 18)
 # define SPRITE_Y 18
 
 # include <errno.h>
