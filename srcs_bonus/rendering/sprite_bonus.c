@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spritete_bonus.c                                     :+:      :+:    :+:   */
+/*   sprite_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 18:00:00 by mpierant          #+#    #+#             */
-/*   Updated: 2026/02/17 18:31:56 by luevange         ###   ########.fr       */
+/*   Created: 2026/03/06 17:38:59 by mpierant &        #+#    #+#             */
+/*   Updated: 2026/03/06 17:57:47 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,26 @@
 
 static void	scale_frame(t_vars *v, t_texture *src, t_texture *dst)
 {
-	int	x;
-	int	y;
-	int	src_x;
-	int	src_y;
-	int	src_idx;
-	int	dst_idx;
+	t_frame	f;
 
 	dst->img = mlx_new_image(v->mlx, SPRITE_WIDTH, SPRITE_HEIGHT);
 	dst->data = mlx_get_data_addr(dst->img, &dst->bpp, &dst->size_line,
 			&dst->endian);
-	y = -1;
-	while (++y < SPRITE_HEIGHT)
+	f.y = -1;
+	while (++f.y < SPRITE_HEIGHT)
 	{
-		x = -1;
-		while (++x < SPRITE_WIDTH)
+		f.x = -1;
+		while (++f.x < SPRITE_WIDTH)
 		{
-			src_x = x * src->width / SPRITE_WIDTH;
-			src_y = y * src->height / SPRITE_HEIGHT;
-			src_idx = src_y * src->size_line + src_x * src->bpp / 8;
-			dst_idx = y * dst->size_line + x * dst->bpp / 8;
-			dst->data[dst_idx] = src->data[src_idx];
-			dst->data[dst_idx + 1] = src->data[src_idx + 1];
-			dst->data[dst_idx + 2] = src->data[src_idx + 2];
+			f.src_x = f.x * src->width / SPRITE_WIDTH;
+			f.src_y = f.y * src->height / SPRITE_HEIGHT;
+			f.src_idx = f.src_y * src->size_line + f.src_x * src->bpp / 8;
+			f.dst_idx = f.y * dst->size_line + f.x * dst->bpp / 8;
+			dst->data[f.dst_idx] = src->data[f.src_idx];
+			dst->data[f.dst_idx + 1] = src->data[f.src_idx + 1];
+			dst->data[f.dst_idx + 2] = src->data[f.src_idx + 2];
 			if (src->bpp == 32)
-				dst->data[dst_idx + 3] = src->data[src_idx + 3];
+				dst->data[f.dst_idx + 3] = src->data[f.src_idx + 3];
 		}
 	}
 }

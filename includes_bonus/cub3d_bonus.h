@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/06 16:52:41 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 17:56:16 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,26 @@ typedef struct s_vars
 	int			frame_counter;
 }				t_vars;
 
+typedef struct s_doors
+{
+	int			player_map_x;
+	int			player_map_y;
+	float		check_x;
+	float		check_y;
+	int			check_map_x;
+	int			check_map_y;
+}				t_doors;
+
+typedef struct s_frame
+{
+	int	x;
+	int	y;
+	int	src_x;
+	int	src_y;
+	int	src_idx;
+	int	dst_idx;
+}				t_frame;
+
 // Initialization
 void			ft_init(t_vars *v);
 
@@ -203,6 +223,8 @@ int				touch(char **map, float new_x, float new_y);
 int				stouch(char **map, int map_x, int map_y);
 void			draw_ceiling(t_vars *v, int x, int y, int end);
 void			draw_floor(t_vars *v, int x, int y, int end);
+int				is_door(char c);
+int				is_door_closed(char c);
 
 // Raycasting
 void			set_ray(t_vars *v);
