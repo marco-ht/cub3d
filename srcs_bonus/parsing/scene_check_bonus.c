@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 19:55:47 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 20:20:30 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 16:47:36 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_extension(t_vars *v)
 	while (v->scene[i])
 		i++;
 	if (i >= 5 && v->scene[i - 4] == '.' && v->scene[i - 3] == 'c' && v->scene[i
-		- 2] == 'u' && v->scene[i - 1] == 'b')
+			- 2] == 'u' && v->scene[i - 1] == 'b')
 		return ;
 	printf("Error\nExtension must be .cub (and filename at least one char)\n");
 	ft_exitclean(v);

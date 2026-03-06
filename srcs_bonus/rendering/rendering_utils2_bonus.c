@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_utils2_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:19:20 by mpierant &        #+#    #+#             */
-/*   Updated: 2026/01/29 17:29:08 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/06 16:46:00 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	touch(char **map, float new_x, float new_y)
 
 int	stouch(char **map, int map_x, int map_y)
 {
-	char c;
+	char	c;
 
 	if (!is_s_valid(map, map_x, map_y))
 		return (1);

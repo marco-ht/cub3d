@@ -3,19 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/04 14:17:28 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/06 17:07:06 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes_bonus/cub3d_bonus.h"
 
-static void	ft_cleanup2(t_vars *v)
+#ifndef __APPLE__
+# define MLX_EXTRA_CLEANUP 1
+#else
+# define MLX_EXTRA_CLEANUP 0
+
+void	mlx_destroy_display(void *mlx); /* stub per compilazione */
+
+#endif
+
+static void	ft_cleanup3(t_vars *v)
 {
 	int	i;
 
+	i = -1;
+	while (++i < NUM_WALK_FRAMES)
+		if (v->walk_frames[i].img)
+			mlx_destroy_image(v->mlx, v->walk_frames[i].img);
+	if (v->img)
+		mlx_destroy_image(v->mlx, v->img);
+	if (v->win)
+		mlx_destroy_window(v->mlx, v->win);
+}
+
+static void	ft_cleanup2(t_vars *v)
+{
 	if (v->map)
 		ft_free_map(v->map, v->map_size);
 	if (v->map_cpy)
@@ -32,22 +53,13 @@ static void	ft_cleanup2(t_vars *v)
 			mlx_destroy_image(v->mlx, v->ea.img);
 		if (v->door.img)
 			mlx_destroy_image(v->mlx, v->door.img);
-		i = -1;
-		while (++i < NUM_WALK_FRAMES)
-			if (v->walk_frames[i].img)
-				mlx_destroy_image(v->mlx, v->walk_frames[i].img);
-		if (v->img)
-			mlx_destroy_image(v->mlx, v->img);
-		if (v->win)
-			mlx_destroy_window(v->mlx, v->win);
+		ft_cleanup3(v);
 	}
-#ifndef __APPLE__
-	if (v->mlx)
+	if (MLX_EXTRA_CLEANUP && v->mlx)
 	{
 		mlx_destroy_display(v->mlx);
 		free(v->mlx);
 	}
-#endif
 }
 
 void	ft_cleanup(t_vars *v)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:00:04 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/05 15:51:55 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/06 16:52:41 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,7 @@ int				ft_check_values(t_vars *v, int fd);
 int				ft_checkmap(t_vars *v);
 int				ft_cpysqrmap(t_vars *v);
 void			ft_check_textures(t_vars *v, int fd);
+int				ft_check_player(t_vars *v);
 
 // Rendering
 void			ft_launch(t_vars *v);

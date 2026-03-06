@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:10:10 by mpierant &        #+#    #+#             */
-/*   Updated: 2025/12/15 21:12:22 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 17:15:04 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,23 @@ static void	draw_wall_line(float height, int line_x, t_vars *v)
 	}
 }
 
+static double	assign_dist(t_vars *v)
+{
+	double	dist;
+
+	if (v->ray.side == 0)
+		dist = (v->ray.dist_x - v->ray.delta_x);
+	else
+		dist = (v->ray.dist_y - v->ray.delta_y);
+	if (dist < 0.0001)
+		dist = 0.0001;
+	v->ray.dist_real = dist;
+	dist *= cos(v->ray.angle - v->player.angle);
+	if (dist < 0.0001)
+		dist = 0.0001;
+	return (dist);
+}
+
 static void	draw_vertical_line(t_vars *v, int x)
 {
 	double	dist;
@@ -52,16 +69,7 @@ static void	draw_vertical_line(t_vars *v, int x)
 		advance_ray(v);
 	hit_char = v->map[v->ray.map_y][v->ray.map_x];
 	v->ray.hit_door = (hit_char == 'D');
-	if (v->ray.side == 0)
-		dist = (v->ray.dist_x - v->ray.delta_x);
-	else
-		dist = (v->ray.dist_y - v->ray.delta_y);
-	if (dist < 0.0001)
-		dist = 0.0001;
-	v->ray.dist_real = dist;
-	dist *= cos(v->ray.angle - v->player.angle);
-	if (dist < 0.0001)
-		dist = 0.0001;
+	dist = assign_dist(v);
 	height = HEIGHT / dist;
 	wall_start_y = (HEIGHT - height) / 2;
 	wall_end_y = wall_start_y + height;
