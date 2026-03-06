@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant <mpierant@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:19:20 by mpierant &        #+#    #+#             */
-/*   Updated: 2026/01/29 17:19:30 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/06 15:44:26 by mpierant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,37 +6,11 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 19:36:01 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 15:51:34 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-static int	ft_check_player(t_vars *v)
-{
-	int	n;
-	int	i;
-	int	j;
-
-	n = 0;
-	j = 0;
-	while (j < v->map_size)
-	{
-		i = 0;
-		while (v->map[j][i])
-		{
-			if (v->map[j][i] == 'N' || v->map[j][i] == 'S'
-				|| v->map[j][i] == 'W' || v->map[j][i] == 'E')
-				n++;
-			i++;
-		}
-		j++;
-	}
-	if (n != 1)
-		return (printf("Error\nThere must be eactly 1 player in the map\n"),
-			ft_exitclean(v), 1);
-	return (0);
-}
 
 static int	ft_is_walkable(char c)
 {
@@ -53,7 +27,7 @@ static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
 		&& ft_is_walkable(map[y - 1][x]))
 		v->error_walls = 1;
 	if (map[y + 1] && x < (int)ft_strlen(map[y + 1]) && ft_is_walkable(map[y
-			+ 1][x]))
+				+ 1][x]))
 		v->error_walls = 1;
 }
 

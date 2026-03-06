@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 17:46:51 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/05 15:54:44 by luevange         ###   ########.fr       */
+/*   Updated: 2026/03/06 16:14:37 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+#ifndef __APPLE__
+# define MLX_EXTRA_CLEANUP 1
+#else
+# define MLX_EXTRA_CLEANUP 0
+
+void	mlx_destroy_display(void *mlx); /* stub per compilazione */
+
+#endif
 
 static void	ft_cleanup2(t_vars *v)
 {
@@ -33,13 +42,11 @@ static void	ft_cleanup2(t_vars *v)
 		if (v->win)
 			mlx_destroy_window(v->mlx, v->win);
 	}
-	#ifndef __APPLE__
-		if (v->mlx)
-		{
-			mlx_destroy_display(v->mlx);
-			free(v->mlx);
-		}
-	#endif
+	if (MLX_EXTRA_CLEANUP && v->mlx)
+	{
+		mlx_destroy_display(v->mlx);
+		free(v->mlx);
+	}
 }
 
 void	ft_cleanup(t_vars *v)

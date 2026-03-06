@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 13:39:26 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 21:24:40 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 15:52:55 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_check_texture(char *value, t_vars *v, int fd)
 
 	i = ft_strlen(value);
 	if (!(i >= 5 && value[i - 4] == '.' && value[i - 3] == 'x' && value[i
-			- 2] == 'p' && value[i - 1] == 'm'))
+				- 2] == 'p' && value[i - 1] == 'm'))
 		return (printf("Error\nTextures must be .xpm files "),
 			printf("(and filename at least one char)\n"),
 			printf("Therefore '%s' is not a valid texture file path\n", value),
