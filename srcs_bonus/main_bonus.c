@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2025/12/15 21:36:19 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/06 18:36:00 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	main(int argc, char **argv)
 }
 
 // ./cub3D_bonus "maps/example.cub"
+// ./cub3D_bonus "maps/doors_example.cub"
 // valgrind ./cub3D_bonus "maps/example.cub"
+// valgrind ./cub3D_bonus "maps/doors_example.cub"
 // valgrind --suppressions=mlx.supp ./cub3D_bonus maps/example.cub
 
 /*
