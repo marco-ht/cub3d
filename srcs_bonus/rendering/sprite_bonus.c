@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 17:38:59 by mpierant &        #+#    #+#             */
-/*   Updated: 2026/03/06 18:04:59 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/07 15:48:49 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	is_player_moving(t_vars *v)
 void	draw_walk_animation(t_vars *v)
 {
 	int	sprite_x;
-	
+
 	sprite_x = WIDTH - SPRITE_WIDTH - 18;
 	if (!is_player_moving(v))
 	{
