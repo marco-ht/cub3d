@@ -6,7 +6,7 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:56:29 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/06 19:31:25 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/07 17:21:45 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ valgrind ./cub3D_bonus "invalid num of" "parameters"
 valgrind ./cub3D_bonus "maps/wrongextention.cubf"
 valgrind ./cub3D_bonus "maps/nonexistent.cub"
 valgrind ./cub3D_bonus "maps/no_perm.cub"
-valgrind ./cub3D_bonus "maps/spaced name.cub"
+valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/spaced name.cub"
 
 // parameters errors
 valgrind ./cub3D_bonus "maps/empty.cub"
@@ -82,7 +82,7 @@ valgrind ./cub3D_bonus "maps/justnewlines.cub"
 valgrind ./cub3D_bonus "maps/incomplete.cub"
 valgrind ./cub3D_bonus "maps/repetition.cub"
 valgrind ./cub3D_bonus "maps/invalidparam.cub"
-valgrind ./cub3D_bonus "maps/randomorder.cub"
+valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/randomorder.cub"
 valgrind ./cub3D_bonus "maps/texture_noxpm.cub"
 valgrind ./cub3D_bonus "maps/texture_notexist.cub"
 valgrind ./cub3D_bonus "maps/texture_noperm.cub"
