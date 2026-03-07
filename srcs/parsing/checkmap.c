@@ -6,48 +6,53 @@
 /*   By: mpierant & luevange <marvin@student.42r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 21:43:50 by mpierant          #+#    #+#             */
-/*   Updated: 2026/03/06 15:51:34 by mpierant &       ###   ########.fr       */
+/*   Updated: 2026/03/07 16:40:33 by mpierant &       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static int	ft_is_walkable(char c)
+int	ft_check_player(t_vars *v)
 {
-	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
-}
+	int	n;
+	int	i;
+	int	j;
 
-static void	ft_check_adjacent(char **map, int x, int y, t_vars *v)
-{
-	if (x > 0 && ft_is_walkable(map[y][x - 1]))
-		v->error_walls = 1;
-	if (map[y][x + 1] && ft_is_walkable(map[y][x + 1]))
-		v->error_walls = 1;
-	if (y > 0 && map[y - 1] && x < (int)ft_strlen(map[y - 1])
-		&& ft_is_walkable(map[y - 1][x]))
-		v->error_walls = 1;
-	if (map[y + 1] && x < (int)ft_strlen(map[y + 1]) && ft_is_walkable(map[y
-				+ 1][x]))
-		v->error_walls = 1;
-}
-
-static void	ft_check_spaces(char **map, t_vars *v)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (map[y])
+	n = 0;
+	j = 0;
+	while (j < v->map_size)
 	{
-		x = 0;
-		while (map[y][x])
+		i = 0;
+		while (v->map[j][i])
 		{
-			if (map[y][x] == ' ')
-				ft_check_adjacent(map, x, y, v);
-			x++;
+			if (v->map[j][i] == 'N' || v->map[j][i] == 'S'
+				|| v->map[j][i] == 'W' || v->map[j][i] == 'E')
+				n++;
+			i++;
 		}
-		y++;
+		j++;
 	}
+	if (n != 1)
+		return (printf("Error\nThere must be eactly 1 player in the map\n"),
+			ft_exitclean(v), 1);
+	return (0);
+}
+
+static void	ft_flodfill(t_point p, char **map, t_vars *v)
+{
+	if (map[p.y][p.x] == ' ')
+	{
+		v->error_walls = 1;
+		return ;
+	}
+	if (map[p.y][p.x] == '1' || map[p.y][p.x] == '*')
+		return ;
+	if (map[p.y][p.x] == '0')
+		map[p.y][p.x] = '*';
+	ft_flodfill((t_point){p.x + 1, p.y}, map, v);
+	ft_flodfill((t_point){p.x - 1, p.y}, map, v);
+	ft_flodfill((t_point){p.x, p.y + 1}, map, v);
+	ft_flodfill((t_point){p.x, p.y - 1}, map, v);
 }
 
 static void	ft_printcpymap(t_vars *v)
@@ -64,10 +69,14 @@ static void	ft_printcpymap(t_vars *v)
 
 int	ft_checkmap(t_vars *v)
 {
+	t_point	p;
+
 	ft_check_player(v);
 	ft_cpysqrmap(v);
+	p.x = v->map_cpy_x_p;
+	p.y = v->map_cpy_y_p;
 	v->error_walls = 0;
-	ft_check_spaces(v->map_cpy, v);
+	ft_flodfill(p, v->map_cpy, v);
 	if (v->error_walls)
 		return (printf("Error\nOpen walls or space reachable by player\n"),
 			ft_printcpymap(v), ft_exitclean(v), 1);
