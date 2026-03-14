@@ -71,6 +71,7 @@ valgrind ./cub3D_bonus "invalid num of" "parameters"
 valgrind ./cub3D_bonus "maps/wrongextention.cubf"
 valgrind ./cub3D_bonus "maps/nonexistent.cub"
 valgrind ./cub3D_bonus "maps/no_perm.cub"
+valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/spaced name.cub"
 
 // parameters errors
 valgrind ./cub3D_bonus "maps/empty.cub"
@@ -78,6 +79,7 @@ valgrind ./cub3D_bonus "maps/justnewlines.cub"
 valgrind ./cub3D_bonus "maps/incomplete.cub"
 valgrind ./cub3D_bonus "maps/repetition.cub"
 valgrind ./cub3D_bonus "maps/invalidparam.cub"
+valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/randomorder.cub"
 valgrind ./cub3D_bonus "maps/texture_noxpm.cub"
 valgrind ./cub3D_bonus "maps/texture_notexist.cub"
 valgrind ./cub3D_bonus "maps/texture_noperm.cub"
@@ -97,8 +99,5 @@ valgrind ./cub3D_bonus "maps/map_spaceinside.cub"
 
 // valgrind --leak-check=full --show-leak-kinds=all
 
-// valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/spaced name.cub"
-// valgrind --suppressions=mlx.supp ./cub3D_bonus "maps/randomorder.cub"
-// valgrind --suppressions=mlx.supp ./cub3D_bonus maps/example.cub
 // valgrind --suppressions=mlx.supp ./cub3D_bonus maps/doors_example.cub
 // valgrind --suppressions=mlx.supp ./cub3D_bonus maps/example.cub
